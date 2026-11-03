@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex-1 flex flex-col p-2.5 sm:p-3.5 space-y-2.5 w-full min-w-0 h-auto lg:h-full overflow-y-auto max-w-[1600px] justify-between">
+    <main className="flex-1 flex flex-col p-2.5 sm:p-3.5 space-y-3 w-full min-w-0 max-w-[1600px] mx-auto">
       {/* BEGIN: TopHeader */}
       <header className="relative bg-white rounded-xl shadow-sm border border-slate-200/80 px-3.5 sm:px-4 py-2.5 sm:py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 overflow-hidden flex-shrink-0">
         {/* Background Silhouette Skyline / Landmark Watermark */}
@@ -111,9 +111,9 @@ export default function Home() {
       {/* END: MetricCardsRow */}
 
       {/* BEGIN: DataRowOne (3 Cards) */}
-      <section className="grid grid-cols-12 gap-2.5 flex-shrink-0 lg:flex-1 min-h-0" data-purpose="middle-charts-row">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-shrink-0" data-purpose="middle-charts-row">
         {/* Card 1: Perbandingan Kasus Pneumonia */}
-        <article className="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+        <article className="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
           <header className="bg-[#0b224e] px-4 py-2.5">
             <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide">Perbandingan Kasus Pneumonia</h4>
           </header>
@@ -138,12 +138,12 @@ export default function Home() {
                 {/* Bar 1: Pekalongan (669) */}
                 <div className="flex flex-col items-center group w-1/3">
                   <span className="text-xs sm:text-sm font-extrabold text-[#0b224e] mb-1.5">669</span>
-                  <div className="w-16 sm:w-20 bg-[#2563eb] rounded-t-md shadow-xs" style={{ height: "14px" }}></div>
+                  <div className="w-14 sm:w-16 bg-[#2563eb] rounded-t-md shadow-xs" style={{ height: "14px" }}></div>
                 </div>
                 {/* Bar 2: Pemalang (13.768) */}
                 <div className="flex flex-col items-center group w-1/3">
                   <span className="text-xs sm:text-sm font-extrabold text-[#0b224e] mb-1.5">13.768</span>
-                  <div className="w-16 sm:w-20 bg-[#2563eb] rounded-t-md shadow-xs" style={{ height: "140px" }}></div>
+                  <div className="w-14 sm:w-16 bg-[#2563eb] rounded-t-md shadow-xs" style={{ height: "140px" }}></div>
                 </div>
               </div>
             </div>
@@ -156,15 +156,15 @@ export default function Home() {
         </article>
 
         {/* Card 2: Peta Persebaran Penduduk per Kecamatan */}
-        <article className="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+        <article className="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
           <header className="bg-[#0b224e] px-4 py-2.5">
             <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide leading-tight">
               Peta Persebaran Penduduk per Kecamatan (Kabupaten Pekalongan)
             </h4>
           </header>
-          <div className="p-3.5 sm:p-4 flex-1 flex flex-row items-center justify-between gap-3">
+          <div className="p-3.5 sm:p-4 flex-1 flex flex-row items-center justify-between gap-2">
             {/* Choropleth Map Polygonal Representation */}
-            <div className="w-3/5 h-48 sm:h-52 flex items-center justify-center">
+            <div className="w-3/5 h-44 sm:h-48 flex items-center justify-center">
               <svg className="w-full h-full drop-shadow-sm" viewBox="0 0 200 200">
                 <polygon fill="#0d3b82" points="60,20 90,15 110,35 85,45 65,35" stroke="#ffffff" strokeWidth="1.5"></polygon>
                 <polygon fill="#1d4ed8" points="110,35 140,25 155,50 130,65 85,45" stroke="#ffffff" strokeWidth="1.5"></polygon>
@@ -183,38 +183,38 @@ export default function Home() {
               </svg>
             </div>
             {/* Legend */}
-            <div className="w-2/5 pl-2 space-y-2.5">
-              <span className="font-bold text-[#0b224e] block text-xs sm:text-sm mb-2.5 tracking-tight">Jumlah Penduduk</span>
-              <div className="flex items-center space-x-2.5">
-                <span className="w-4 h-4 bg-[#0d3b82] rounded-xs flex-shrink-0 shadow-2xs"></span>
-                <span className="text-xs font-semibold text-slate-700">≥ 80.000</span>
+            <div className="w-2/5 pl-1.5 space-y-2">
+              <span className="font-bold text-[#0b224e] block text-xs sm:text-sm mb-1.5 tracking-tight">Jumlah Penduduk</span>
+              <div className="flex items-center space-x-2">
+                <span className="w-3.5 h-3.5 bg-[#0d3b82] rounded-xs flex-shrink-0 shadow-2xs"></span>
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-700">≥ 80.000</span>
               </div>
-              <div className="flex items-center space-x-2.5">
-                <span className="w-4 h-4 bg-[#2563eb] rounded-xs flex-shrink-0 shadow-2xs"></span>
-                <span className="text-xs font-semibold text-slate-700">60.000 – 80.000</span>
+              <div className="flex items-center space-x-2">
+                <span className="w-3.5 h-3.5 bg-[#2563eb] rounded-xs flex-shrink-0 shadow-2xs"></span>
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-700">60k – 80k</span>
               </div>
-              <div className="flex items-center space-x-2.5">
-                <span className="w-4 h-4 bg-[#60a5fa] rounded-xs flex-shrink-0 shadow-2xs"></span>
-                <span className="text-xs font-semibold text-slate-700">40.000 – 60.000</span>
+              <div className="flex items-center space-x-2">
+                <span className="w-3.5 h-3.5 bg-[#60a5fa] rounded-xs flex-shrink-0 shadow-2xs"></span>
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-700">40k – 60k</span>
               </div>
-              <div className="flex items-center space-x-2.5">
-                <span className="w-4 h-4 bg-[#bfdbfe] rounded-xs flex-shrink-0 shadow-2xs"></span>
-                <span className="text-xs font-semibold text-slate-700">&lt; 40.000</span>
+              <div className="flex items-center space-x-2">
+                <span className="w-3.5 h-3.5 bg-[#bfdbfe] rounded-xs flex-shrink-0 shadow-2xs"></span>
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-700">&lt; 40.000</span>
               </div>
             </div>
           </div>
         </article>
 
         {/* Card 3: Komposisi Penduduk */}
-        <article className="col-span-12 md:col-span-12 xl:col-span-4 bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
+        <article className="bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
           <header className="bg-[#0b224e] px-4 py-2.5">
             <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide">Komposisi Penduduk</h4>
           </header>
-          <div className="p-3.5 sm:p-4 flex-1 flex flex-row items-center justify-between space-x-3">
+          <div className="p-3.5 sm:p-4 flex-1 flex flex-row items-center justify-between space-x-2">
             {/* Gender Donut Chart */}
             <div className="w-1/2 flex flex-col items-center">
-              <div className="relative w-32 h-32 flex items-center justify-center">
-                <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+              <div className="relative w-24 sm:w-28 h-24 sm:h-28 flex items-center justify-center">
+                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
                   {/* Pink Segment (Perempuan 49.17%) */}
                   <circle
                     cx="18"
@@ -240,25 +240,25 @@ export default function Home() {
                 </svg>
                 {/* Center Text in Donut */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="text-sm sm:text-base font-extrabold text-slate-900 leading-none">50,83%</span>
-                  <span className="text-[10px] sm:text-xs text-slate-500 font-bold mt-1">Laki-laki</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-slate-900 leading-none">50,83%</span>
+                  <span className="text-[9px] sm:text-[10px] text-slate-500 font-bold mt-0.5">Laki-laki</span>
                 </div>
               </div>
               {/* Gender Legend */}
-              <div className="mt-2.5 text-xs space-y-1.5 w-full max-w-[140px]">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-3 h-3 rounded-full bg-[#2563eb] flex-shrink-0"></span>
+              <div className="mt-2 text-xs space-y-1 w-full max-w-[130px]">
+                <div className="flex items-center justify-between text-[11px]">
+                  <div className="flex items-center space-x-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#2563eb] flex-shrink-0"></span>
                     <span className="text-slate-700 font-medium">Laki-laki</span>
                   </div>
-                  <span className="font-extrabold text-slate-900">50,83%</span>
+                  <span className="font-extrabold text-slate-900">50,8%</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-3 h-3 rounded-full bg-[#f87171] flex-shrink-0"></span>
+                <div className="flex items-center justify-between text-[11px]">
+                  <div className="flex items-center space-x-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#f87171] flex-shrink-0"></span>
                     <span className="text-slate-700 font-medium">Perempuan</span>
                   </div>
-                  <span className="font-extrabold text-slate-900">49,17%</span>
+                  <span className="font-extrabold text-slate-900">49,2%</span>
                 </div>
               </div>
             </div>
@@ -347,16 +347,16 @@ export default function Home() {
       {/* END: DataRowOne */}
 
       {/* BEGIN: DataRowTwo (3 Cards) */}
-      <section className="grid grid-cols-12 gap-2.5 flex-shrink-0 lg:flex-1 min-h-0" data-purpose="bottom-charts-row">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-shrink-0" data-purpose="bottom-charts-row">
         {/* Card 1: Tren Cakupan Imunisasi Dasar Lengkap (IDL) */}
-        <article className="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+        <article className="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
           <header className="bg-[#0b224e] px-4 py-2.5">
             <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide">Tren Cakupan Imunisasi Dasar Lengkap (IDL)</h4>
           </header>
           <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
-            <div className="relative h-48 sm:h-52 w-full flex items-end">
+            <div className="relative h-44 sm:h-48 w-full flex items-end">
               {/* Y-Axis Labels */}
-              <div className="w-12 h-full flex flex-col justify-between text-xs text-slate-500 font-bold pr-1.5">
+              <div className="w-10 sm:w-11 h-full flex flex-col justify-between text-[11px] sm:text-xs text-slate-500 font-bold pr-1">
                 <span>125%</span>
                 <span>100%</span>
                 <span>75%</span>
@@ -397,22 +397,22 @@ export default function Home() {
               </div>
             </div>
             {/* X-Axis Year Labels */}
-            <div className="ml-12 flex justify-around text-xs font-bold text-slate-700 pt-2">
+            <div className="ml-10 sm:ml-11 flex justify-around text-xs font-bold text-slate-700 pt-2">
               <span>2021</span>
               <span>2022</span>
               <span>2023</span>
               <span>2024</span>
             </div>
             {/* Chart Legend */}
-            <div className="flex items-center justify-center space-x-5 pt-2.5 text-xs">
-              <div className="flex items-center space-x-2">
-                <span className="w-4 h-0.5 bg-[#2563eb] inline-block relative">
-                  <span className="w-2 h-2 rounded-full border-2 border-[#2563eb] bg-white absolute -top-0.5 left-1"></span>
+            <div className="flex items-center justify-center space-x-4 pt-2 text-[11px] sm:text-xs">
+              <div className="flex items-center space-x-1.5">
+                <span className="w-3.5 h-0.5 bg-[#2563eb] inline-block relative">
+                  <span className="w-1.5 h-1.5 rounded-full border border-[#2563eb] bg-white absolute -top-0.5 left-1"></span>
                 </span>
                 <span className="text-slate-700 font-semibold">Cakupan IDL</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <span className="w-4 border-b-2 border-dashed border-emerald-500 inline-block"></span>
+              <div className="flex items-center space-x-1.5">
+                <span className="w-3.5 border-b-2 border-dashed border-emerald-500 inline-block"></span>
                 <span className="text-slate-700 font-semibold">Target (≥100%)</span>
               </div>
             </div>
@@ -420,66 +420,66 @@ export default function Home() {
         </article>
 
         {/* Card 2: Data per Kecamatan (Table) */}
-        <article className="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+        <article className="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
           <header className="bg-[#0b224e] px-4 py-2.5">
             <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide">Data per Kecamatan</h4>
           </header>
-          <div className="p-3 sm:p-3.5 flex-1 overflow-x-auto flex flex-col justify-center">
-            <table className="w-full text-left text-xs sm:text-[13px] border-collapse tabular-nums" data-purpose="subdistrict-table">
+          <div className="p-2.5 sm:p-3 flex-1 overflow-x-auto w-full">
+            <table className="w-full min-w-[260px] text-left text-xs border-collapse tabular-nums" data-purpose="subdistrict-table">
               <thead>
                 <tr className="bg-[#0b224e] text-white">
-                  <th className="py-2 px-2.5 font-bold text-center border-r border-blue-900 w-10">No.</th>
-                  <th className="py-2 px-3 font-bold border-r border-blue-900">Kecamatan</th>
-                  <th className="py-2 px-3 font-bold text-right border-r border-blue-900">Jumlah Penduduk</th>
-                  <th className="py-2 px-3 font-bold text-right border-r border-blue-900">Rumah Tangga</th>
-                  <th className="py-2 px-3 font-bold text-center">Rata-rata/RT</th>
+                  <th className="py-1.5 px-2 font-bold text-center border-r border-blue-900 w-8">No</th>
+                  <th className="py-1.5 px-2.5 font-bold border-r border-blue-900">Kecamatan</th>
+                  <th className="py-1.5 px-2 font-bold text-right border-r border-blue-900">Penduduk</th>
+                  <th className="py-1.5 px-2 font-bold text-right border-r border-blue-900">RT</th>
+                  <th className="py-1.5 px-2 font-bold text-center">Rata/RT</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 text-slate-700 font-medium">
                 <tr className="hover:bg-blue-50/40 transition">
-                  <td className="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">1</td>
-                  <td className="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Kandangserang</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">37.423</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">11.209</td>
-                  <td className="py-1.5 px-3 text-center font-semibold text-slate-700">3,34</td>
+                  <td className="py-1 px-2 text-center border-r border-slate-200 font-bold text-slate-500">1</td>
+                  <td className="py-1 px-2.5 border-r border-slate-200 font-bold text-slate-800">Kandangserang</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">37.423</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">11.209</td>
+                  <td className="py-1 px-2 text-center font-semibold text-slate-700">3,34</td>
                 </tr>
                 <tr className="hover:bg-blue-50/40 transition bg-slate-50/70">
-                  <td className="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">2</td>
-                  <td className="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Paninggaran</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">44.314</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">12.963</td>
-                  <td className="py-1.5 px-3 text-center font-semibold text-slate-700">3,42</td>
+                  <td className="py-1 px-2 text-center border-r border-slate-200 font-bold text-slate-500">2</td>
+                  <td className="py-1 px-2.5 border-r border-slate-200 font-bold text-slate-800">Paninggaran</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">44.314</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">12.963</td>
+                  <td className="py-1 px-2 text-center font-semibold text-slate-700">3,42</td>
                 </tr>
                 <tr className="hover:bg-blue-50/40 transition">
-                  <td className="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">3</td>
-                  <td className="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Lebakbarang</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">11.602</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">3.676</td>
-                  <td className="py-1.5 px-3 text-center font-semibold text-slate-700">3,16</td>
+                  <td className="py-1 px-2 text-center border-r border-slate-200 font-bold text-slate-500">3</td>
+                  <td className="py-1 px-2.5 border-r border-slate-200 font-bold text-slate-800">Lebakbarang</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">11.602</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">3.676</td>
+                  <td className="py-1 px-2 text-center font-semibold text-slate-700">3,16</td>
                 </tr>
                 <tr className="hover:bg-blue-50/40 transition bg-slate-50/70">
-                  <td className="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">4</td>
-                  <td className="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Petungkriyono</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">13.635</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">4.444</td>
-                  <td className="py-1.5 px-3 text-center font-semibold text-slate-700">3,07</td>
+                  <td className="py-1 px-2 text-center border-r border-slate-200 font-bold text-slate-500">4</td>
+                  <td className="py-1 px-2.5 border-r border-slate-200 font-bold text-slate-800">Petungkriyono</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">13.635</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">4.444</td>
+                  <td className="py-1 px-2 text-center font-semibold text-slate-700">3,07</td>
                 </tr>
                 <tr className="hover:bg-blue-50/40 transition">
-                  <td className="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">5</td>
-                  <td className="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Talun</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">32.542</td>
-                  <td className="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">10.518</td>
-                  <td className="py-1.5 px-3 text-center font-semibold text-slate-700">3,10</td>
+                  <td className="py-1 px-2 text-center border-r border-slate-200 font-bold text-slate-500">5</td>
+                  <td className="py-1 px-2.5 border-r border-slate-200 font-bold text-slate-800">Talun</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">32.542</td>
+                  <td className="py-1 px-2 text-right border-r border-slate-200 font-semibold text-slate-700">10.518</td>
+                  <td className="py-1 px-2 text-center font-semibold text-slate-700">3,10</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr className="bg-blue-100/70 font-extrabold text-slate-900 border-t-2 border-slate-300">
-                  <td className="py-2 px-3 text-left border-r border-slate-300 font-black text-[#0b224e]" colSpan={2}>
+                  <td className="py-1.5 px-2.5 text-left border-r border-slate-300 font-black text-[#0b224e]" colSpan={2}>
                     Total
                   </td>
-                  <td className="py-2 px-3 text-right border-r border-slate-300 font-black text-[#0b224e]">1.026.546</td>
-                  <td className="py-2 px-3 text-right border-r border-slate-300 font-black text-[#0b224e]">326.721</td>
-                  <td className="py-2 px-3 text-center font-black text-[#0b224e]">3,14</td>
+                  <td className="py-1.5 px-2 text-right border-r border-slate-300 font-black text-[#0b224e]">1.026.546</td>
+                  <td className="py-1.5 px-2 text-right border-r border-slate-300 font-black text-[#0b224e]">326.721</td>
+                  <td className="py-1.5 px-2 text-center font-black text-[#0b224e]">3,14</td>
                 </tr>
               </tfoot>
             </table>
@@ -487,63 +487,63 @@ export default function Home() {
         </article>
 
         {/* Card 3: Tenaga Kesehatan Tahun 2024 */}
-        <article className="col-span-12 md:col-span-12 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+        <article className="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
           <header className="bg-[#0b224e] px-4 py-2.5">
             <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide">Tenaga Kesehatan Tahun 2024</h4>
           </header>
           <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
-            <div className="space-y-2.5 pt-1">
+            <div className="space-y-2 pt-1">
               {/* Row 1: Perawat */}
               <div className="flex items-center">
-                <span className="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Perawat</span>
+                <span className="w-28 sm:w-32 text-right pr-2 text-xs font-bold text-slate-800 truncate">Perawat</span>
                 <div className="flex-1 flex items-center">
-                  <div className="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style={{ width: "82%" }}></div>
-                  <span className="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">1.011</span>
+                  <div className="bg-[#2563eb] h-3.5 sm:h-4 rounded-r-xs shadow-xs" style={{ width: "82%" }}></div>
+                  <span className="text-xs font-extrabold text-[#0b224e] ml-1.5 sm:ml-2">1.011</span>
                 </div>
               </div>
               {/* Row 2: Bidan */}
               <div className="flex items-center">
-                <span className="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Bidan</span>
+                <span className="w-28 sm:w-32 text-right pr-2 text-xs font-bold text-slate-800 truncate">Bidan</span>
                 <div className="flex-1 flex items-center">
-                  <div className="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style={{ width: "60%" }}></div>
-                  <span className="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">711</span>
+                  <div className="bg-[#2563eb] h-3.5 sm:h-4 rounded-r-xs shadow-xs" style={{ width: "60%" }}></div>
+                  <span className="text-xs font-extrabold text-[#0b224e] ml-1.5 sm:ml-2">711</span>
                 </div>
               </div>
               {/* Row 3: Dokter Umum */}
               <div className="flex items-center">
-                <span className="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Dokter Umum</span>
+                <span className="w-28 sm:w-32 text-right pr-2 text-xs font-bold text-slate-800 truncate">Dokter Umum</span>
                 <div className="flex-1 flex items-center">
-                  <div className="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style={{ width: "13%" }}></div>
-                  <span className="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">135</span>
+                  <div className="bg-[#2563eb] h-3.5 sm:h-4 rounded-r-xs shadow-xs" style={{ width: "13%" }}></div>
+                  <span className="text-xs font-extrabold text-[#0b224e] ml-1.5 sm:ml-2">135</span>
                 </div>
               </div>
               {/* Row 4: Dokter Spesialis */}
               <div className="flex items-center">
-                <span className="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Dokter Spesialis</span>
+                <span className="w-28 sm:w-32 text-right pr-2 text-xs font-bold text-slate-800 truncate">Dokter Spesialis</span>
                 <div className="flex-1 flex items-center">
-                  <div className="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style={{ width: "12%" }}></div>
-                  <span className="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">128</span>
+                  <div className="bg-[#2563eb] h-3.5 sm:h-4 rounded-r-xs shadow-xs" style={{ width: "12%" }}></div>
+                  <span className="text-xs font-extrabold text-[#0b224e] ml-1.5 sm:ml-2">128</span>
                 </div>
               </div>
               {/* Row 5: Tenaga Gizi */}
               <div className="flex items-center">
-                <span className="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Tenaga Gizi</span>
+                <span className="w-28 sm:w-32 text-right pr-2 text-xs font-bold text-slate-800 truncate">Tenaga Gizi</span>
                 <div className="flex-1 flex items-center">
-                  <div className="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style={{ width: "6%" }}></div>
-                  <span className="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">58</span>
+                  <div className="bg-[#2563eb] h-3.5 sm:h-4 rounded-r-xs shadow-xs" style={{ width: "6%" }}></div>
+                  <span className="text-xs font-extrabold text-[#0b224e] ml-1.5 sm:ml-2">58</span>
                 </div>
               </div>
               {/* Row 6: Tenaga Kesehatan Lainnya */}
               <div className="flex items-center">
-                <span className="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Tenaga Kesehatan Lainnya</span>
+                <span className="w-28 sm:w-32 text-right pr-2 text-xs font-bold text-slate-800 truncate">Tenaga Lainnya</span>
                 <div className="flex-1 flex items-center">
-                  <div className="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style={{ width: "48%" }}></div>
-                  <span className="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">559</span>
+                  <div className="bg-[#2563eb] h-3.5 sm:h-4 rounded-r-xs shadow-xs" style={{ width: "48%" }}></div>
+                  <span className="text-xs font-extrabold text-[#0b224e] ml-1.5 sm:ml-2">559</span>
                 </div>
               </div>
             </div>
             {/* X-Axis Ruler Scale */}
-            <div className="mt-2.5 pt-1.5 border-t border-slate-200 pl-36 flex justify-between text-xs text-slate-500 font-bold">
+            <div className="mt-2 pt-1 border-t border-slate-200 pl-28 sm:pl-32 flex justify-between text-[11px] text-slate-400 font-semibold">
               <span>0</span>
               <span>250</span>
               <span>500</span>

@@ -234,7 +234,7 @@
 </aside>
 <!-- END: Sidebar -->
 <!-- BEGIN: MainContent -->
-<main class="flex-1 flex flex-col p-2.5 sm:p-3.5 space-y-2.5 w-full min-w-0 h-auto lg:h-full overflow-y-auto max-w-[1600px] justify-between">
+<main class="flex-1 flex flex-col p-2.5 sm:p-3.5 space-y-3 w-full min-w-0 max-w-[1600px] mx-auto">
 <!-- BEGIN: TopHeader -->
 <header class="relative bg-white rounded-xl shadow-sm border border-slate-200/80 px-3.5 sm:px-4 py-2.5 sm:py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 overflow-hidden flex-shrink-0">
 <!-- Background Silhouette Skyline / Landmark Watermark -->
@@ -317,9 +317,9 @@
 </section>
 <!-- END: MetricCardsRow -->
 <!-- BEGIN: DataRowOne (3 Cards) -->
-<section class="grid grid-cols-12 gap-2.5 flex-shrink-0 lg:flex-1 min-h-0" data-purpose="middle-charts-row">
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-shrink-0" data-purpose="middle-charts-row">
 <!-- Card 1: Perbandingan Kasus Pneumonia -->
-<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<article class="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
 <header class="bg-[#0b224e] px-4 py-2.5">
 <h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Perbandingan Kasus Pneumonia</h4>
 </header>
@@ -362,7 +362,7 @@
 </div>
 </article>
 <!-- Card 2: Peta Persebaran Penduduk per Kecamatan -->
-<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<article class="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
 <header class="bg-[#0b224e] px-4 py-2.5">
 <h4 class="text-xs sm:text-sm font-bold text-white tracking-wide leading-tight">Peta Persebaran Penduduk per Kecamatan (Kabupaten Pekalongan)</h4>
 </header>
@@ -410,14 +410,14 @@
 </div>
 </article>
 <!-- Card 3: Komposisi Penduduk -->
-<article class="col-span-12 md:col-span-12 xl:col-span-4 bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
+<article class="bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
 <header class="bg-[#0b224e] px-4 py-2.5">
 <h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Komposisi Penduduk</h4>
 </header>
 <div class="p-3.5 sm:p-4 flex-1 flex flex-row items-center justify-between space-x-3">
 <!-- Gender Donut Chart -->
 <div class="w-1/2 flex flex-col items-center">
-<div class="relative w-32 h-32 flex items-center justify-center">
+<div class="relative w-24 sm:w-28 h-24 sm:h-28 flex items-center justify-center">
 <svg class="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
 <!-- Pink Segment (Perempuan 49.17%) -->
 <circle cx="18" cy="18" fill="none" r="14" stroke="#f87171" stroke-dasharray="49.17 100" stroke-dashoffset="0" stroke-width="4.8"></circle>
@@ -532,9 +532,9 @@
 </section>
 <!-- END: DataRowOne -->
 <!-- BEGIN: DataRowTwo (3 Cards) -->
-<section class="grid grid-cols-12 gap-2.5 flex-shrink-0 lg:flex-1 min-h-0" data-purpose="bottom-charts-row">
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-shrink-0" data-purpose="bottom-charts-row">
 <!-- Card 1: Tren Cakupan Imunisasi Dasar Lengkap (IDL) -->
-<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<article class="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
 <header class="bg-[#0b224e] px-4 py-2.5">
 <h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Tren Cakupan Imunisasi Dasar Lengkap (IDL)</h4>
 </header>
@@ -603,7 +603,7 @@
 </div>
 </article>
 <!-- Card 2: Data per Kecamatan (Table) -->
-<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<article class="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
 <header class="bg-[#0b224e] px-4 py-2.5">
 <h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Data per Kecamatan</h4>
 </header>
@@ -667,7 +667,7 @@
 </div>
 </article>
 <!-- Card 3: Tenaga Kesehatan Tahun 2024 -->
-<article class="col-span-12 md:col-span-12 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<article class="bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
 <header class="bg-[#0b224e] px-4 py-2.5">
 <h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Tenaga Kesehatan Tahun 2024</h4>
 </header>
