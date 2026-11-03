@@ -1,0 +1,807 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dashboard Pneumonia Balita - Kabupaten Pekalongan 2024</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0b224e',
+              darkNavy: '#081736',
+              headerNavy: '#0f295a',
+              cardBlue: '#e8f2fe',
+              cardPink: '#fdeeed',
+              cardPurple: '#f1eafb',
+              cardGreen: '#e8f7ee',
+              barBlue: '#2a75d3',
+              accentBlue: '#3b82f6',
+            }
+          },
+          fontFamily: {
+            sans: ['Lato', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom CSS for specialized chart geometries & layout tweaks -->
+<style data-purpose="custom-layout">
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 100;
+      font-display: swap;
+      src: url('Lato/Lato-Thin.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 100;
+      font-display: swap;
+      src: url('Lato/Lato-ThinItalic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('Lato/Lato-Light.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 300;
+      font-display: swap;
+      src: url('Lato/Lato-LightItalic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('Lato/Lato-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url('Lato/Lato-Italic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('Lato/Lato-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('Lato/Lato-Bold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('Lato/Lato-Bold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 700;
+      font-display: swap;
+      src: url('Lato/Lato-BoldItalic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url('Lato/Lato-Black.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url('Lato/Lato-Black.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 900;
+      font-display: swap;
+      src: url('Lato/Lato-BlackItalic.ttf') format('truetype');
+    }
+
+    *, *::before, *::after, input, button, select, textarea {
+      font-family: 'Lato', sans-serif;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #f3f7fa;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="min-h-screen lg:h-screen w-full lg:w-screen flex flex-col lg:flex-row bg-[#f3f7fa] font-sans antialiased overflow-x-hidden lg:overflow-hidden selection:bg-blue-200">
+<!-- Mobile Sidebar Backdrop -->
+<div id="sidebar-backdrop" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 hidden lg:hidden transition-opacity duration-300"></div>
+
+<!-- BEGIN: Sidebar -->
+<aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-[#0b224e] text-white flex-shrink-0 flex flex-col justify-between shadow-2xl lg:shadow-xl h-full pt-2 pb-0 overflow-y-auto lg:overflow-hidden transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out lg:static">
+<!-- Top Part: Logo & Navigation Items -->
+<div class="px-3 py-1 flex flex-col items-center flex-shrink-0">
+<!-- Top Branding Row with Mobile Close Button -->
+<div class="w-full flex items-center justify-between mb-2 pt-0.5">
+<div class="w-7 lg:hidden"></div>
+<!-- Government Logo Emblem -->
+<div class="flex flex-col items-center flex-1 text-center" data-purpose="region-branding">
+<div class="w-12 h-14 relative mb-1.5 flex items-center justify-center">
+<img src="assets/Logo-Kabupaten-Pekalongan.png" alt="Logo Kabupaten Pekalongan" class="w-full h-full object-contain drop-shadow"/>
+</div>
+<h1 class="text-xs font-bold tracking-wide uppercase leading-tight text-slate-100">Kabupaten<br>Pekalongan</h1>
+</div>
+<!-- Mobile Close Button -->
+<button onclick="toggleSidebar()" aria-label="Tutup Menu" class="lg:hidden p-1.5 text-slate-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors focus:outline-none">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+</svg>
+</button>
+</div>
+<!-- Navigation Menu -->
+<nav class="w-full space-y-1" data-purpose="navigation-menu">
+<!-- Beranda (Active State) -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg bg-[#2563eb] text-white text-xs font-semibold shadow-sm transition-all duration-150" href="code.html">
+<svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+          Beranda
+        </a>
+<!-- Demografi -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="demografi.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+          Demografi
+        </a>
+<!-- Kasus Pneumonia -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="kasus_pneumonia.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="6"></circle>
+<path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-6.5l-2.8 2.8m-7.4 7.4l-2.8 2.8m0-13l2.8 2.8m7.4 7.4l2.8 2.8"></path>
+</svg>
+          Kasus Pneumonia
+        </a>
+<!-- Imunisasi -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="imunisasi.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+          Imunisasi
+        </a>
+<!-- Tenaga Kesehatan -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="tenaga_kesehatan.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path>
+</svg>
+          Tenaga Kesehatan
+        </a>
+<!-- Per Kecamatan -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="per_kecamatan.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"></path>
+</svg>
+          Per Kecamatan
+        </a>
+<!-- Tentang Data -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="tentang_data.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path>
+</svg>
+          Tentang Data
+        </a>
+</nav>
+</div>
+<!-- Bottom Healthcare Mother & Child Illustration -->
+<div class="w-full h-44 lg:h-1/2 px-2 flex items-end justify-center flex-shrink-0" data-purpose="sidebar-bottom-illustration">
+<img src="assets/Protected Mother and Baby Illustration.png" alt="Ilustrasi Ibu dan Bayi Sehat" class="w-full h-full object-contain object-bottom drop-shadow-lg"/>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 flex flex-col p-2.5 sm:p-3.5 space-y-2.5 w-full min-w-0 h-auto lg:h-full overflow-y-auto max-w-[1600px] justify-between">
+<!-- BEGIN: TopHeader -->
+<header class="relative bg-white rounded-xl shadow-sm border border-slate-200/80 px-3.5 sm:px-4 py-2.5 sm:py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 overflow-hidden flex-shrink-0">
+<!-- Background Silhouette Skyline / Landmark Watermark -->
+<div class="hidden md:flex absolute right-16 sm:right-24 -bottom-1.5 sm:-bottom-2 top-0 opacity-25 pointer-events-none items-end">
+<img src="assets/Blue Monument Skyline in Misty Clouds.png" alt="Landmark Pekalongan" class="h-28 md:h-32 lg:h-36 w-auto max-w-none object-contain object-bottom"/>
+</div>
+<!-- Left Title with Hamburger Button -->
+<div class="z-10 flex items-center">
+<!-- Mobile Hamburger Button -->
+<button onclick="toggleSidebar()" aria-label="Buka Menu Navigasi" class="lg:hidden mr-2.5 p-1.5 rounded-lg text-slate-700 bg-slate-100 hover:bg-slate-200 focus:outline-none transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+</svg>
+</button>
+<div>
+<h2 class="text-xl sm:text-2xl font-black text-[#0b224e] tracking-tight leading-tight">Dashboard Pneumonia Balita</h2>
+<h3 class="text-xs sm:text-base font-bold text-[#0b224e] mt-0.5">Kabupaten Pekalongan – Tahun 2024</h3>
+</div>
+</div>
+<!-- Right Year Filter Selector -->
+<div class="relative inline-flex items-center sm:mt-0 z-10 self-end sm:self-auto">
+<svg class="pointer-events-none absolute left-3 w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-700 z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<select id="year-filter" aria-label="Pilih Tahun" class="appearance-none bg-slate-50 hover:bg-slate-100 border border-slate-300 pl-8 sm:pl-9 pr-8 py-1 sm:py-1.5 rounded-lg text-xs font-semibold text-slate-700 cursor-pointer shadow-sm transition focus:outline-none focus:ring-2 focus:ring-blue-500/20" style="background-image: none;">
+<option value="2024" selected>Tahun: 2024</option>
+</select>
+<svg class="pointer-events-none absolute right-2.5 w-3.5 h-3.5 text-slate-500 z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: MetricCardsRow -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 flex-shrink-0" data-purpose="kpi-metrics-row">
+<!-- Card 1: Jumlah Balita -->
+<div class="bg-[#e8f2fe] border border-blue-200/70 rounded-xl p-3 sm:p-3.5 flex items-center space-x-3.5 shadow-xs">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xs flex-shrink-0">
+<img src="assets/01_icon_bayi.png" alt="Jumlah Balita" class="w-10 h-10 object-contain"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs sm:text-[13px] font-bold text-slate-700 leading-snug">Jumlah Balita</p>
+<div class="text-2xl sm:text-[28px] font-black text-[#0b224e] tracking-tight mt-0.5 leading-none">99.625</div>
+<span class="text-xs font-semibold text-slate-500 block mt-0.5">jiwa</span>
+</div>
+</div>
+<!-- Card 2: Kasus Pneumonia -->
+<div class="bg-[#fdeeed] border border-rose-200/70 rounded-xl p-3 sm:p-3.5 flex items-center space-x-3.5 shadow-xs">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xs flex-shrink-0">
+<img src="assets/02_icon_virus_pneumonia.png" alt="Kasus Pneumonia" class="w-10 h-10 object-contain"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs sm:text-[13px] font-bold text-slate-700 leading-snug">Kasus Pneumonia</p>
+<div class="text-2xl sm:text-[28px] font-black text-[#0b224e] tracking-tight mt-0.5 leading-none">669</div>
+<span class="text-[11px] sm:text-xs font-semibold text-rose-700 block mt-0.5">(0,67% dari jumlah balita)</span>
+</div>
+</div>
+<!-- Card 3: Jumlah Kematian -->
+<div class="bg-[#f1eafb] border border-purple-200/70 rounded-xl p-3 sm:p-3.5 flex items-center space-x-3.5 shadow-xs">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xs flex-shrink-0">
+<img src="assets/03_icon_kematian.png" alt="Jumlah Kematian" class="w-10 h-10 object-contain"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs sm:text-[13px] font-bold text-slate-700 leading-snug">Jumlah Kematian</p>
+<div class="text-2xl sm:text-[28px] font-black text-[#0b224e] tracking-tight mt-0.5 leading-none">11</div>
+<span class="text-[11px] sm:text-xs font-semibold text-purple-700 block mt-0.5">(CFR 1,64%)</span>
+</div>
+</div>
+<!-- Card 4: Cakupan IDL 2024 -->
+<div class="bg-[#e8f7ee] border border-emerald-200/70 rounded-xl p-3 sm:p-3.5 flex items-center space-x-3.5 shadow-xs">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xs flex-shrink-0">
+<img src="assets/04_icon_perlindungan_idl.png" alt="Cakupan IDL 2024" class="w-10 h-10 object-contain"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs sm:text-[13px] font-bold text-slate-700 leading-snug">Cakupan IDL 2024</p>
+<div class="text-2xl sm:text-[28px] font-black text-[#0b224e] tracking-tight mt-0.5 leading-none">101,5%</div>
+<span class="text-[11px] sm:text-xs font-semibold text-emerald-700 block mt-0.5">(Target ≥100%)</span>
+</div>
+</div>
+</section>
+<!-- END: MetricCardsRow -->
+<!-- BEGIN: DataRowOne (3 Cards) -->
+<section class="grid grid-cols-12 gap-2.5 flex-shrink-0 lg:flex-1 min-h-0" data-purpose="middle-charts-row">
+<!-- Card 1: Perbandingan Kasus Pneumonia -->
+<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<header class="bg-[#0b224e] px-4 py-2.5">
+<h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Perbandingan Kasus Pneumonia</h4>
+</header>
+<div class="p-3.5 sm:p-4 flex-1 flex flex-col justify-end">
+<!-- Vertical Bar Chart -->
+<div class="h-44 sm:h-48 w-full flex items-end relative border-b border-slate-300">
+<!-- Y Axis Grid & Labels -->
+<div class="absolute left-0 inset-y-0 w-12 flex flex-col justify-between text-xs text-slate-500 font-bold pr-1">
+<span class="">15.000</span>
+<span class="">10.000</span>
+<span class="">5.000</span>
+<span class="">0</span>
+</div>
+<!-- Y Axis Dotted Gridlines -->
+<div class="absolute left-12 right-0 inset-y-0 flex flex-col justify-between pointer-events-none">
+<div class="border-b border-slate-100 w-full"></div>
+<div class="border-b border-slate-100 w-full"></div>
+<div class="border-b border-slate-100 w-full"></div>
+<div class="border-b border-transparent w-full"></div>
+</div>
+<!-- Chart Bars Container -->
+<div class="ml-12 w-full h-full flex items-end justify-around px-4 z-10">
+<!-- Bar 1: Pekalongan (669) -->
+<div class="flex flex-col items-center group w-1/3">
+<span class="text-xs sm:text-sm font-extrabold text-[#0b224e] mb-1.5">669</span>
+<div class="w-16 sm:w-20 bg-[#2563eb] rounded-t-md shadow-xs" style="height: 14px;"></div>
+</div>
+<!-- Bar 2: Pemalang (13.768) -->
+<div class="flex flex-col items-center group w-1/3">
+<span class="text-xs sm:text-sm font-extrabold text-[#0b224e] mb-1.5">13.768</span>
+<div class="w-16 sm:w-20 bg-[#2563eb] rounded-t-md shadow-xs" style="height: 140px;"></div>
+</div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="ml-12 flex justify-around text-center pt-2">
+<span class="w-1/2 text-xs sm:text-[13px] font-bold text-slate-800 leading-snug">Kabupaten Pekalongan</span>
+<span class="w-1/2 text-xs sm:text-[13px] font-bold text-slate-800 leading-snug">Kabupaten Pemalang</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Peta Persebaran Penduduk per Kecamatan -->
+<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<header class="bg-[#0b224e] px-4 py-2.5">
+<h4 class="text-xs sm:text-sm font-bold text-white tracking-wide leading-tight">Peta Persebaran Penduduk per Kecamatan (Kabupaten Pekalongan)</h4>
+</header>
+<div class="p-3.5 sm:p-4 flex-1 flex flex-row items-center justify-between gap-3">
+<!-- Choropleth Map Polygonal Representation -->
+<div class="w-3/5 h-48 sm:h-52 flex items-center justify-center">
+<svg class="w-full h-full drop-shadow-sm" viewBox="0 0 200 200">
+<!-- Subdistricts in shades of blue representing population densities -->
+<polygon fill="#0d3b82" points="60,20 90,15 110,35 85,45 65,35" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#1d4ed8" points="110,35 140,25 155,50 130,65 85,45" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#3b82f6" points="40,45 65,35 85,45 75,75 45,70" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#1e40af" points="85,45 130,65 115,95 75,75" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#60a5fa" points="130,65 165,55 175,85 140,105 115,95" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#93c5fd" points="30,75 75,75 65,110 25,100" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#1e3a8a" points="75,75 115,95 105,125 65,110" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#3b82f6" points="115,95 140,105 130,135 95,130 105,125" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#93c5fd" points="140,105 175,85 180,120 150,140 130,135" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#60a5fa" points="25,100 65,110 55,145 20,135" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#2563eb" points="65,110 105,125 90,165 50,155 55,145" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#1e40af" points="95,130 130,135 120,170 85,165" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#60a5fa" points="50,155 90,165 75,190 40,180" stroke="#ffffff" stroke-width="1.5"></polygon>
+<polygon fill="#93c5fd" points="90,165 120,170 110,192 75,190" stroke="#ffffff" stroke-width="1.5"></polygon>
+</svg>
+</div>
+<!-- Legend -->
+<div class="w-2/5 pl-2 space-y-2.5">
+<span class="font-bold text-[#0b224e] block text-xs sm:text-sm mb-2.5 tracking-tight">Jumlah Penduduk</span>
+<div class="flex items-center space-x-2.5">
+<span class="w-4 h-4 bg-[#0d3b82] rounded-xs flex-shrink-0 shadow-2xs"></span>
+<span class="text-xs font-semibold text-slate-700">≥ 80.000</span>
+</div>
+<div class="flex items-center space-x-2.5">
+<span class="w-4 h-4 bg-[#2563eb] rounded-xs flex-shrink-0 shadow-2xs"></span>
+<span class="text-xs font-semibold text-slate-700">60.000 – 80.000</span>
+</div>
+<div class="flex items-center space-x-2.5">
+<span class="w-4 h-4 bg-[#60a5fa] rounded-xs flex-shrink-0 shadow-2xs"></span>
+<span class="text-xs font-semibold text-slate-700">40.000 – 60.000</span>
+</div>
+<div class="flex items-center space-x-2.5">
+<span class="w-4 h-4 bg-[#bfdbfe] rounded-xs flex-shrink-0 shadow-2xs"></span>
+<span class="text-xs font-semibold text-slate-700">&lt; 40.000</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Komposisi Penduduk -->
+<article class="col-span-12 md:col-span-12 xl:col-span-4 bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
+<header class="bg-[#0b224e] px-4 py-2.5">
+<h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Komposisi Penduduk</h4>
+</header>
+<div class="p-3.5 sm:p-4 flex-1 flex flex-row items-center justify-between space-x-3">
+<!-- Gender Donut Chart -->
+<div class="w-1/2 flex flex-col items-center">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+<!-- Pink Segment (Perempuan 49.17%) -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#f87171" stroke-dasharray="49.17 100" stroke-dashoffset="0" stroke-width="4.8"></circle>
+<!-- Blue Segment (Laki-laki 50.83%) -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#2563eb" stroke-dasharray="50.83 100" stroke-dashoffset="-49.17" stroke-width="4.8"></circle>
+</svg>
+<!-- Center Text in Donut -->
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-sm sm:text-base font-extrabold text-slate-900 leading-none">50,83%</span>
+<span class="text-[10px] sm:text-xs text-slate-500 font-bold mt-1">Laki-laki</span>
+</div>
+</div>
+<!-- Gender Legend -->
+<div class="mt-2.5 text-xs space-y-1.5 w-full max-w-[140px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="w-3 h-3 rounded-full bg-[#2563eb] flex-shrink-0"></span>
+<span class="text-slate-700 font-medium">Laki-laki</span>
+</div>
+<span class="font-extrabold text-slate-900">50,83%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="w-3 h-3 rounded-full bg-[#f87171] flex-shrink-0"></span>
+<span class="text-slate-700 font-medium">Perempuan</span>
+</div>
+<span class="font-extrabold text-slate-900">49,17%</span>
+</div>
+</div>
+</div>
+<!-- Age Brackets Redesign (Clean Horizontal Bars) -->
+<div class="w-1/2 flex flex-col justify-between pl-3 border-l border-slate-100 h-full">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs sm:text-sm font-bold text-[#0b224e]">Kelompok Umur</span>
+<span class="text-[10px] text-slate-400 font-semibold">(Tahun)</span>
+</div>
+<div class="space-y-2 flex-1 flex flex-col justify-center py-1">
+<!-- 0-4 thn -->
+<div>
+<div class="flex justify-between items-center text-xs mb-0.5">
+<span class="font-bold text-blue-900 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-blue-600"></span>
+0–4 thn
+<span class="text-[10px] bg-blue-100 text-blue-800 px-1.5 py-0.2 rounded font-bold">Balita</span>
+</span>
+<span class="font-extrabold text-blue-900 tabular-nums">6,8%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+<div class="bg-blue-600 h-full rounded-full transition-all duration-300" style="width: 12.7%;"></div>
+</div>
+</div>
+
+<!-- 5-14 thn -->
+<div>
+<div class="flex justify-between items-center text-xs mb-0.5">
+<span class="font-medium text-slate-700 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+5–14 thn
+</span>
+<span class="font-bold text-slate-800 tabular-nums">16,8%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+<div class="bg-blue-400 h-full rounded-full transition-all duration-300" style="width: 31.5%;"></div>
+</div>
+</div>
+
+<!-- 15-19 thn -->
+<div>
+<div class="flex justify-between items-center text-xs mb-0.5">
+<span class="font-medium text-slate-700 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+15–19 thn
+</span>
+<span class="font-bold text-slate-800 tabular-nums">14,6%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+<div class="bg-blue-400 h-full rounded-full transition-all duration-300" style="width: 27.3%;"></div>
+</div>
+</div>
+
+<!-- 20-59 thn -->
+<div>
+<div class="flex justify-between items-center text-xs mb-0.5">
+<span class="font-medium text-slate-700 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+20–59 thn
+</span>
+<span class="font-bold text-slate-800 tabular-nums">53,4%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+<div class="bg-blue-500 h-full rounded-full transition-all duration-300" style="width: 100%;"></div>
+</div>
+</div>
+
+<!-- ≥60 thn -->
+<div>
+<div class="flex justify-between items-center text-xs mb-0.5">
+<span class="font-medium text-slate-700 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+≥ 60 thn
+</span>
+<span class="font-bold text-slate-800 tabular-nums">8,4%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+<div class="bg-blue-400 h-full rounded-full transition-all duration-300" style="width: 15.7%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- END: DataRowOne -->
+<!-- BEGIN: DataRowTwo (3 Cards) -->
+<section class="grid grid-cols-12 gap-2.5 flex-shrink-0 lg:flex-1 min-h-0" data-purpose="bottom-charts-row">
+<!-- Card 1: Tren Cakupan Imunisasi Dasar Lengkap (IDL) -->
+<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<header class="bg-[#0b224e] px-4 py-2.5">
+<h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Tren Cakupan Imunisasi Dasar Lengkap (IDL)</h4>
+</header>
+<div class="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
+<div class="relative h-48 sm:h-52 w-full flex items-end">
+<!-- Y-Axis Labels -->
+<div class="w-12 h-full flex flex-col justify-between text-xs text-slate-500 font-bold pr-1.5">
+<span class="">125%</span>
+<span class="">100%</span>
+<span class="">75%</span>
+<span class="">50%</span>
+<span class="">25%</span>
+<span class="">0%</span>
+</div>
+<!-- Chart Graph Area -->
+<div class="relative flex-1 h-full border-b border-l border-slate-200">
+<!-- Horizontal background lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-40">
+<div class="border-b border-slate-200 w-full"></div>
+<div class="border-b border-emerald-400 border-dashed w-full"></div> <!-- Target 100% -->
+<div class="border-b border-slate-200 w-full"></div>
+<div class="border-b border-slate-200 w-full"></div>
+<div class="border-b border-slate-200 w-full"></div>
+<div class="w-full"></div>
+</div>
+<!-- Line Chart SVG Path -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 300 150">
+<!-- Target Line (100% dashed green) at y = 30 -->
+<line stroke="#10b981" stroke-dasharray="5 4" stroke-width="2" x1="10" x2="290" y1="30" y2="30"></line>
+<!-- Blue IDL line: 2021(65.4%->72), 2022(113.3%->14), 2023(100.3%->30), 2024(101.5%->28) -->
+<polyline fill="none" points="25,72 105,14 195,30 275,28" stroke="#2563eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<!-- Data Points & Labels -->
+<!-- 2021 -->
+<circle cx="25" cy="72" fill="#ffffff" r="4.5" stroke="#2563eb" stroke-width="2.5"></circle>
+<text fill="#0b224e" font-size="10" font-weight="800" text-anchor="middle" x="25" y="58">65,4%</text>
+<!-- 2022 -->
+<circle cx="105" cy="14" fill="#ffffff" r="4.5" stroke="#2563eb" stroke-width="2.5"></circle>
+<text fill="#0b224e" font-size="10" font-weight="800" text-anchor="middle" x="105" y="6">113,3%</text>
+<!-- 2023 -->
+<circle cx="195" cy="30" fill="#ffffff" r="4.5" stroke="#2563eb" stroke-width="2.5"></circle>
+<text fill="#0b224e" font-size="10" font-weight="800" text-anchor="middle" x="195" y="18">100,3%</text>
+<!-- 2024 -->
+<circle cx="275" cy="28" fill="#ffffff" r="4.5" stroke="#2563eb" stroke-width="2.5"></circle>
+<text fill="#0b224e" font-size="10" font-weight="800" text-anchor="middle" x="275" y="16">101,5%</text>
+</svg>
+</div>
+</div>
+<!-- X-Axis Year Labels -->
+<div class="ml-12 flex justify-around text-xs font-bold text-slate-700 pt-2">
+<span class="">2021</span>
+<span class="">2022</span>
+<span class="">2023</span>
+<span class="">2024</span>
+</div>
+<!-- Chart Legend -->
+<div class="flex items-center justify-center space-x-5 pt-2.5 text-xs">
+<div class="flex items-center space-x-2">
+<span class="w-4 h-0.5 bg-[#2563eb] inline-block relative"><span class="w-2 h-2 rounded-full border-2 border-[#2563eb] bg-white absolute -top-0.5 left-1"></span></span>
+<span class="text-slate-700 font-semibold">Cakupan IDL</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-4 border-b-2 border-dashed border-emerald-500 inline-block"></span>
+<span class="text-slate-700 font-semibold">Target (≥100%)</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Data per Kecamatan (Table) -->
+<article class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<header class="bg-[#0b224e] px-4 py-2.5">
+<h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Data per Kecamatan</h4>
+</header>
+<div class="p-3 sm:p-3.5 flex-1 overflow-x-auto flex flex-col justify-center">
+<table class="w-full text-left text-xs sm:text-[13px] border-collapse tabular-nums" data-purpose="subdistrict-table">
+<thead>
+<tr class="bg-[#0b224e] text-white">
+<th class="py-2 px-2.5 font-bold text-center border-r border-blue-900 w-10">No.</th>
+<th class="py-2 px-3 font-bold border-r border-blue-900">Kecamatan</th>
+<th class="py-2 px-3 font-bold text-right border-r border-blue-900">Jumlah Penduduk</th>
+<th class="py-2 px-3 font-bold text-right border-r border-blue-900">Rumah Tangga</th>
+<th class="py-2 px-3 font-bold text-center">Rata-rata/RT</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 text-slate-700 font-medium">
+<tr class="hover:bg-blue-50/40 transition">
+<td class="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">1</td>
+<td class="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Kandangserang</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">37.423</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">11.209</td>
+<td class="py-1.5 px-3 text-center font-semibold text-slate-700">3,34</td>
+</tr>
+<tr class="hover:bg-blue-50/40 transition bg-slate-50/70">
+<td class="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">2</td>
+<td class="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Paninggaran</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">44.314</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">12.963</td>
+<td class="py-1.5 px-3 text-center font-semibold text-slate-700">3,42</td>
+</tr>
+<tr class="hover:bg-blue-50/40 transition">
+<td class="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">3</td>
+<td class="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Lebakbarang</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">11.602</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">3.676</td>
+<td class="py-1.5 px-3 text-center font-semibold text-slate-700">3,16</td>
+</tr>
+<tr class="hover:bg-blue-50/40 transition bg-slate-50/70">
+<td class="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">4</td>
+<td class="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Petungkriyono</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">13.635</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">4.444</td>
+<td class="py-1.5 px-3 text-center font-semibold text-slate-700">3,07</td>
+</tr>
+<tr class="hover:bg-blue-50/40 transition">
+<td class="py-1.5 px-2.5 text-center border-r border-slate-200 font-bold text-slate-500">5</td>
+<td class="py-1.5 px-3 border-r border-slate-200 font-bold text-slate-800">Talun</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">32.542</td>
+<td class="py-1.5 px-3 text-right border-r border-slate-200 font-semibold text-slate-700">10.518</td>
+<td class="py-1.5 px-3 text-center font-semibold text-slate-700">3,10</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="bg-blue-100/70 font-extrabold text-slate-900 border-t-2 border-slate-300">
+<td class="py-2 px-3 text-left border-r border-slate-300 font-black text-[#0b224e]" colspan="2">Total</td>
+<td class="py-2 px-3 text-right border-r border-slate-300 font-black text-[#0b224e]">1.026.546</td>
+<td class="py-2 px-3 text-right border-r border-slate-300 font-black text-[#0b224e]">326.721</td>
+<td class="py-2 px-3 text-center font-black text-[#0b224e]">3,14</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</article>
+<!-- Card 3: Tenaga Kesehatan Tahun 2024 -->
+<article class="col-span-12 md:col-span-12 xl:col-span-4 bg-white rounded-xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col">
+<header class="bg-[#0b224e] px-4 py-2.5">
+<h4 class="text-xs sm:text-sm font-bold text-white tracking-wide">Tenaga Kesehatan Tahun 2024</h4>
+</header>
+<div class="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
+<!-- Horizontal Bar Chart -->
+<div class="space-y-2.5 pt-1">
+<!-- Row 1: Perawat -->
+<div class="flex items-center">
+<span class="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Perawat</span>
+<div class="flex-1 flex items-center">
+<div class="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style="width: 82%;"></div>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">1.011</span>
+</div>
+</div>
+<!-- Row 2: Bidan -->
+<div class="flex items-center">
+<span class="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Bidan</span>
+<div class="flex-1 flex items-center">
+<div class="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style="width: 60%;"></div>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">711</span>
+</div>
+</div>
+<!-- Row 3: Dokter Umum -->
+<div class="flex items-center">
+<span class="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Dokter Umum</span>
+<div class="flex-1 flex items-center">
+<div class="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style="width: 13%;"></div>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">135</span>
+</div>
+</div>
+<!-- Row 4: Dokter Spesialis -->
+<div class="flex items-center">
+<span class="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Dokter Spesialis</span>
+<div class="flex-1 flex items-center">
+<div class="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style="width: 12%;"></div>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">128</span>
+</div>
+</div>
+<!-- Row 5: Tenaga Gizi -->
+<div class="flex items-center">
+<span class="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Tenaga Gizi</span>
+<div class="flex-1 flex items-center">
+<div class="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style="width: 6%;"></div>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">58</span>
+</div>
+</div>
+<!-- Row 6: Tenaga Kesehatan Lainnya -->
+<div class="flex items-center">
+<span class="w-36 text-right pr-3 text-xs sm:text-[13px] font-bold text-slate-800 truncate">Tenaga Kesehatan Lainnya</span>
+<div class="flex-1 flex items-center">
+<div class="bg-[#2563eb] h-4.5 rounded-r-xs shadow-xs" style="width: 48%;"></div>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#0b224e] ml-2">559</span>
+</div>
+</div>
+</div>
+<!-- X-Axis Ruler Scale -->
+<div class="mt-2.5 pt-1.5 border-t border-slate-200 pl-36 flex justify-between text-xs text-slate-500 font-bold">
+<span class="">0</span>
+<span class="">250</span>
+<span class="">500</span>
+<span class="">750</span>
+<span class="">1.000</span>
+</div>
+</div>
+</article>
+</section>
+<!-- END: DataRowTwo -->
+<!-- BEGIN: BottomInformationCards (3 Cards) -->
+<footer class="grid grid-cols-1 md:grid-cols-3 gap-2.5 flex-shrink-0" data-purpose="summary-footer-cards">
+<!-- Card 1: Catatan Penting (Warm Yellow) -->
+<div class="bg-[#fef9c3]/70 border border-amber-300/80 rounded-xl p-3 flex items-start space-x-3 shadow-xs">
+<div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-black text-sm flex-shrink-0 mt-0.5 shadow-2xs">
+          !
+        </div>
+<div class="text-xs text-slate-800 flex-1">
+<h5 class="font-bold text-slate-900 mb-1 text-xs sm:text-[13px]">Catatan Penting</h5>
+<ul class="list-disc pl-4 space-y-1 leading-snug font-medium text-slate-700">
+<li class="">Data kasus pneumonia berasal dari Kabupaten Pekalongan dan Pemalang (wilayah berbeda).</li>
+<li class="">Angka cakupan imunisasi &gt;100% perlu diverifikasi dengan sumber asli.</li>
+<li class="">Data faktor risiko (paparan asap rokok, status gizi, BBLR, dll) masih belum tersedia.</li>
+</ul>
+</div>
+</div>
+<!-- Card 2: Kesimpulan Singkat (Lavender/Purple) -->
+<div class="bg-[#ede9fe]/70 border border-purple-300/80 rounded-xl p-3 flex items-start space-x-3 shadow-xs">
+<div class="w-8 h-8 rounded-full bg-purple-200 text-purple-800 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-2xs">
+<!-- Lightbulb Icon -->
+<svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 20 20">
+<path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14H8a4 4 0 01-2.383-7.218 4.015 4.015 0 014.766 0A4 4 0 0112 14z"></path>
+</svg>
+</div>
+<div class="text-xs text-slate-800 flex-1">
+<h5 class="font-bold text-slate-900 mb-1 text-xs sm:text-[13px]">Kesimpulan Singkat</h5>
+<p class="leading-relaxed font-medium text-slate-700">
+            Kasus pneumonia di Kabupaten Pekalongan tahun 2024 sebesar <strong class="font-bold text-slate-900">0,67%</strong> dari jumlah balita, dengan CFR <strong class="font-bold text-slate-900">1,64%</strong>. Cakupan imunisasi dasar lengkap sudah mencapai target, dan ketersediaan tenaga kesehatan cukup memadai.
+          </p>
+</div>
+</div>
+<!-- Card 3: Sumber Data (Mint Light Green) -->
+<div class="bg-[#dcfce7]/70 border border-emerald-300/80 rounded-xl p-3 flex items-start space-x-3 shadow-xs">
+<div class="w-8 h-8 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-2xs">
+<!-- Analytics Bar Chart Icon -->
+<svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 20 20">
+<path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+</svg>
+</div>
+<div class="text-xs text-slate-800 flex-1">
+<h5 class="font-bold text-slate-900 mb-1 text-xs sm:text-[13px]">Sumber Data</h5>
+<p class="leading-relaxed font-medium text-slate-700">
+<strong class="font-bold text-slate-900">Dinas Kesehatan Kabupaten Pekalongan, 2024</strong><br>
+<span class="text-slate-600 text-[11px] font-normal">(Beserta data pembanding dari Jawa Barat, Jawa Tengah, dan sumber global).</span>
+</p>
+</div>
+</div>
+</footer>
+<!-- END: BottomInformationCards -->
+</main>
+<!-- END: MainContent -->
+
+
+<!-- Mobile Drawer Script -->
+<script>
+  function toggleSidebar() {
+    const sb = document.getElementById('sidebar');
+    const bd = document.getElementById('sidebar-backdrop');
+    if (!sb || !bd) return;
+    const isClosed = sb.classList.contains('-translate-x-full');
+    if (isClosed) {
+      sb.classList.remove('-translate-x-full');
+      bd.classList.remove('hidden');
+    } else {
+      sb.classList.add('-translate-x-full');
+      bd.classList.add('hidden');
+    }
+  }
+</script>
+</body></html>

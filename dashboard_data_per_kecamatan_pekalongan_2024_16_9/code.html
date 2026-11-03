@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analisis Indikator Kesehatan Per Kecamatan - Kab. Pekalongan 2024</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#0f2744",
+            "tertiary-fixed": "#cce5ff",
+            "surface-container-highest": "#d3e4fe",
+            "surface-container": "#e5eeff",
+            "error": "#ba1a1a",
+            "secondary-container": "#8eafff",
+            "tertiary-container": "#002942",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#d4e3ff",
+            "error-container": "#ffdad6",
+            "background": "#f8f9ff",
+            "on-primary-container": "#798fb1",
+            "on-tertiary-container": "#2c94d8",
+            "on-surface": "#0b1c30",
+            "on-background": "#0b1c30",
+            "surface-variant": "#d3e4fe",
+            "secondary-fixed": "#d9e2ff",
+            "surface-bright": "#f8f9ff",
+            "on-tertiary-fixed-variant": "#004b73",
+            "tertiary": "#001323",
+            "on-tertiary-fixed": "#001d31",
+            "inverse-on-surface": "#eaf1ff",
+            "on-secondary-container": "#164089",
+            "secondary-fixed-dim": "#b0c6ff",
+            "surface-container-high": "#dce9ff",
+            "surface": "#f8f9ff",
+            "inverse-surface": "#213145",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#74777e",
+            "surface-container-low": "#eff4ff",
+            "on-secondary-fixed": "#001944",
+            "on-primary-fixed-variant": "#324866",
+            "on-secondary-fixed-variant": "#1b448d",
+            "tertiary-fixed-dim": "#93ccff",
+            "inverse-primary": "#b2c8ed",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#021c39",
+            "surface-dim": "#cbdbf5",
+            "primary-fixed-dim": "#b2c8ed",
+            "primary": "#001229",
+            "secondary": "#385ca6",
+            "surface-tint": "#4a5f7f",
+            "outline-variant": "#c4c6ce",
+            "on-surface-variant": "#44474d",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.25rem",
+            "margin": "1.75rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "metric-display": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "metric-display": ["32px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-lg": ["13px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "title-lg": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "headline-lg": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["11px", { "lineHeight": "14px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #eff4ff;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c4c6ce;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #74777e;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body-md min-h-screen overflow-x-hidden">
+<!-- ========================================================= -->
+<!-- SHARED COMPONENT 1: SideNavBar                             -->
+<!-- ========================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-[260px] z-40 bg-primary-container border-r border-outline-variant/10 flex flex-col justify-between p-4">
+<!-- Top Area & Branding -->
+<div>
+<div class="flex items-center gap-3 px-2 py-3 border-b border-outline-variant/10">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest/10 flex items-center justify-center p-1.5 border border-surface-container-highest/20">
+<span class="material-symbols-outlined text-secondary-container" data-icon="local_hospital">local_hospital</span>
+</div>
+<div class="flex flex-col">
+<span class="text-title-lg font-title-lg text-surface tracking-tight">Dinas Kesehatan</span>
+<span class="text-body-sm font-body-sm text-on-primary-container">Kab. Pekalongan</span>
+</div>
+</div>
+<!-- Emergency Operational Badge CTA -->
+<div class="mt-4 px-2">
+<div class="bg-primary/50 border border-secondary-container/20 rounded-lg p-2.5 flex items-center gap-2.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-container"></span>
+</span>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-surface uppercase tracking-wider">Status Darurat Terkendali</span>
+<span class="text-body-sm font-body-sm text-on-primary-container">Surveilans Aktif 24/7</span>
+</div>
+</div>
+</div>
+<!-- Navigation Tabs (7 Required items) -->
+<nav class="mt-5 space-y-1">
+<!-- 1. Beranda (Inactive) -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2.5 rounded-lg hover:bg-primary/40 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="dashboard">dashboard</span>
+<span class="text-label-lg font-label-lg">Beranda</span>
+</a>
+<!-- 2. Demografi (Inactive) -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2.5 rounded-lg hover:bg-primary/40 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="groups">groups</span>
+<span class="text-label-lg font-label-lg">Demografi</span>
+</a>
+<!-- 3. Kasus Pneumonia (Inactive) -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2.5 rounded-lg hover:bg-primary/40 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="respiratory_rate">respiratory_rate</span>
+<span class="text-label-lg font-label-lg">Kasus Pneumonia</span>
+</a>
+<!-- 4. Imunisasi (Inactive) -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2.5 rounded-lg hover:bg-primary/40 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="vaccines">vaccines</span>
+<span class="text-label-lg font-label-lg">Imunisasi</span>
+</a>
+<!-- 5. Tenaga Kesehatan (Inactive) -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2.5 rounded-lg hover:bg-primary/40 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="medical_services">medical_services</span>
+<span class="text-label-lg font-label-lg">Tenaga Kesehatan</span>
+</a>
+<!-- 6. Per Kecamatan (ACTIVE STATE MATCHING DESTINATION PAGE) -->
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-3 py-2.5 font-title-lg active:scale-[0.98] transition-all duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="location_city" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_city</span>
+<span class="text-label-lg font-label-lg">Per Kecamatan</span>
+</a>
+<!-- 7. Tentang Data (Inactive) -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2.5 rounded-lg hover:bg-primary/40 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="info">info</span>
+<span class="text-label-lg font-label-lg">Tentang Data</span>
+</a>
+</nav>
+</div>
+<!-- SideNav Footer -->
+<div class="border-t border-outline-variant/10 pt-3 space-y-1">
+<div class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2 rounded-lg hover:bg-primary/40 transition-colors cursor-pointer text-body-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="health_and_safety">health_and_safety</span>
+<span class="text-label-md font-label-md">Puskesmas Siaga 24/7</span>
+</div>
+<div class="flex items-center gap-3 text-on-primary-container hover:text-surface px-3 py-2 rounded-lg hover:bg-primary/40 transition-colors cursor-pointer text-body-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span class="text-label-md font-label-md">Bantuan Teknis</span>
+</div>
+<div class="pt-2 text-[10px] text-on-primary-container/70 text-center">
+        Dinkes Command Center v2.4
+      </div>
+</div>
+</aside>
+<!-- ========================================================= -->
+<!-- SHARED COMPONENT 2: TopNavBar                             -->
+<!-- ========================================================= -->
+<header class="sticky top-0 right-0 z-30 ml-[260px] w-[calc(100%-260px)] bg-surface-container-lowest border-b border-outline-variant/30 shadow-sm flex justify-between items-center px-6 py-3">
+<!-- Brand / Title hierarchy -->
+<div class="flex items-center gap-4">
+<div>
+<div class="flex items-center gap-2">
+<h1 class="text-headline-md font-headline-md text-primary tracking-tight">Analisis Indikator Kesehatan Per Kecamatan</h1>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-md font-label-md px-2 py-0.5 rounded">Tingkat Wilayah</span>
+</div>
+<div class="flex items-center gap-3 text-body-sm font-body-sm text-on-surface-variant">
+<span>Kabupaten Pekalongan – Tahun 2024</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span>Program Pencegahan Pneumonia &amp; Stunting Balita</span>
+</div>
+</div>
+</div>
+<!-- Trailing Actions & Dropdowns -->
+<div class="flex items-center gap-3">
+<!-- Trailing Action: Filter Kecamatan -->
+<div class="relative">
+<button class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/60 rounded px-3 py-1.5 text-body-sm font-body-sm text-primary hover:bg-surface-container transition-colors active:scale-95 shadow-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="filter_alt">filter_alt</span>
+<span>Filter Kecamatan: Semua (19)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Trailing Primary Action: Tahun -->
+<div class="flex items-center gap-1.5 bg-surface-container-low border border-outline-variant/50 rounded px-3 py-1.5 text-body-sm font-body-sm text-primary">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-title-lg text-label-lg font-label-lg text-primary">Tahun 2024</span>
+</div>
+<!-- Trailing Icon Action: Notifikasi -->
+<button class="relative p-2 rounded-full hover:bg-surface-container transition-colors text-on-surface-variant active:scale-95" title="Notifikasi Surveilans">
+<span class="material-symbols-outlined text-[22px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<!-- Profile Avatar -->
+<div class="flex items-center gap-2.5 pl-2 border-l border-outline-variant/40">
+<div class="w-8 h-8 rounded-full bg-primary-container text-surface flex items-center justify-center font-title-lg text-label-lg font-label-lg border border-outline-variant/30">
+          AP
+        </div>
+<div class="hidden lg:flex flex-col">
+<span class="text-label-md font-label-md text-primary leading-tight">Admin Surveilans</span>
+<span class="text-[11px] text-on-surface-variant">Dinkes Dinkominfo</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================= -->
+<!-- MAIN WORKSPACE CONTENT (16:9 Institutional Widescreen)    -->
+<!-- ========================================================= -->
+<main class="ml-[260px] w-[calc(100%-260px)] px-7 py-6 max-w-[1920px] mx-auto space-y-6">
+<!-- KPI Metric Cards Grid (4 Pastel Themed Categorizations) -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- KPI 1: Total Kecamatan (Biru Pastel #E0F2FE) -->
+<div class="bg-[#E0F2FE] border border-[#BAE6FD] rounded-lg p-4 shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-md font-label-md uppercase tracking-wider text-[#0369A1]">Total Wilayah Kerja</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-metric-display font-metric-display text-[#0C4A6E]">19</span>
+<span class="text-title-lg font-title-lg text-[#0369A1]">Kecamatan</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-[#BAE6FD]/60 flex items-center justify-center text-[#0284C7]">
+<span class="material-symbols-outlined" data-icon="location_city">location_city</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#BAE6FD]/80 flex items-center justify-between text-body-sm font-body-sm text-[#075985]">
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="home_work">home_work</span>
+            272 Desa / 13 Kelurahan
+          </span>
+<span class="bg-[#FFFFFF]/80 px-2 py-0.5 rounded text-[11px] font-semibold text-[#0369A1]">100% Terpetakan</span>
+</div>
+</div>
+<!-- KPI 2: Wilayah Kasus Tertinggi (Merah Pastel #FFE4E6) -->
+<div class="bg-[#FFE4E6] border border-[#FECDD3] rounded-lg p-4 shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-md font-label-md uppercase tracking-wider text-[#BE123C]">Wilayah Kasus Tertinggi</p>
+<div class="flex items-baseline gap-1.5 mt-1">
+<span class="text-headline-lg font-headline-lg text-[#881337] tracking-tight">Kedungwuni &amp; Wiradesa</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-[#FECDD3]/60 flex items-center justify-center text-[#E11D48]">
+<span class="material-symbols-outlined" data-icon="coronavirus">coronavirus</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#FECDD3]/80 flex items-center justify-between text-body-sm font-body-sm text-[#9F1239]">
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px] text-error" data-icon="trending_up">trending_up</span>
+            143 Kasus Terkonfirmasi Balita
+          </span>
+<span class="bg-[#FFFFFF]/80 px-2 py-0.5 rounded text-[11px] font-semibold text-[#BE123C]">Zona Kewaspadaan</span>
+</div>
+</div>
+<!-- KPI 3: Wilayah Terpencil 3T (Kuning/Orange Pastel #FEF3C7) -->
+<div class="bg-[#FEF3C7] border border-[#FDE68A] rounded-lg p-4 shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-md font-label-md uppercase tracking-wider text-[#B45309]">Wilayah Pegunungan (3T)</p>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-headline-lg font-headline-lg text-[#78350F] tracking-tight">3 Kecamatan Utama</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-[#FDE68A]/60 flex items-center justify-center text-[#D97706]">
+<span class="material-symbols-outlined" data-icon="terrain">terrain</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#FDE68A]/80 flex items-center justify-between text-body-sm font-body-sm text-[#92400E]">
+<span class="truncate max-w-[180px] font-medium" title="Petungkriyono, Lebakbarang, Kandangserang">
+            Petungkriyono, Lebakbarang...
+          </span>
+<span class="bg-[#FFFFFF]/80 px-2 py-0.5 rounded text-[11px] font-semibold text-[#B45309]">Pusling Aktif</span>
+</div>
+</div>
+<!-- KPI 4: Puskesmas Pembina (Hijau Pastel #DCFCE7) -->
+<div class="bg-[#DCFCE7] border border-[#BBF7D0] rounded-lg p-4 shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-md font-label-md uppercase tracking-wider text-[#15803D]">Puskesmas Pembina</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-metric-display font-metric-display text-[#14532D]">27</span>
+<span class="text-title-lg font-title-lg text-[#15803D]">UPTD Siaga</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-[#BBF7D0]/60 flex items-center justify-center text-[#16A34A]">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#BBF7D0]/80 flex items-center justify-between text-body-sm font-body-sm text-[#166534]">
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="health_and_safety">health_and_safety</span>
+            100% Terakreditasi Kemenkes
+          </span>
+<span class="bg-[#FFFFFF]/80 px-2 py-0.5 rounded text-[11px] font-semibold text-[#15803D]">Paripurna &amp; Utama</span>
+</div>
+</div>
+</section>
+<!-- Operational Split View: 8-Column Map & Analytical Scatter + 4-Column Focus Panel -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+<!-- Left 8-Columns: Peta Wilayah & Matriks Scatter Komparasi -->
+<div class="xl:col-span-8 space-y-5">
+<!-- Peta Wilayah Kecamatan dengan Status Zona Kesehatan -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-6 bg-primary-container rounded-sm"></span>
+<div>
+<h2 class="text-title-lg font-title-lg text-primary">Peta Sebaran &amp; Status Beban Kesehatan Per Kecamatan</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Kabupaten Pekalongan – Visualisasi Spasial 19 Kecamatan</p>
+</div>
+</div>
+<!-- Interactive Map Zoom & Filter Buttons -->
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Lapisan:</span>
+<button class="px-2.5 py-1 bg-surface-container-high text-primary rounded text-label-md font-label-md hover:bg-secondary-fixed transition-colors">Semua Kasus</button>
+<button class="px-2.5 py-1 bg-surface-container text-on-surface-variant rounded text-label-md font-label-md hover:bg-surface-container-high transition-colors">Zona Darurat</button>
+<div class="flex items-center border border-outline-variant/50 rounded ml-1 overflow-hidden">
+<button class="p-1 hover:bg-surface-container text-on-surface-variant" title="Perbesar"><span class="material-symbols-outlined text-[18px]" data-icon="add">add</span></button>
+<button class="p-1 hover:bg-surface-container text-on-surface-variant border-l border-outline-variant/50" title="Perkecil"><span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span></button>
+</div>
+</div>
+</div>
+<!-- Stylized Spatial Map Canvas -->
+<div class="relative mt-4 h-[300px] w-full bg-[#F1F5F9] rounded-lg border border-outline-variant/30 p-4 flex flex-col justify-between overflow-hidden">
+<!-- Background Map Coordinates Grid Pattern -->
+<div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#0F2744 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Stylized Regional SVG Representation of 19 Subdistricts -->
+<div class="absolute inset-0 flex items-center justify-center p-6">
+<svg class="w-full h-full drop-shadow-sm select-none" viewbox="0 0 760 280">
+<!-- Coastal / Northern Plain Subdistricts (High Density) -->
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 340,30 L 450,25 L 490,65 L 430,85 L 360,75 Z" fill="#8EACCD" stroke="#ffffff" stroke-width="2">
+<title>Wiradesa: Kasus Balita 58, IDL 102.3%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="700" text-anchor="middle" x="410" y="55">Wiradesa</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 450,25 L 560,20 L 590,70 L 490,65 Z" fill="#D2E0FB" stroke="#ffffff" stroke-width="2">
+<title>Tirto: Kasus Balita 44, IDL 99.8%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="700" text-anchor="middle" x="515" y="48">Tirto</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 240,35 L 340,30 L 360,75 L 290,95 L 230,65 Z" fill="#D2E0FB" stroke="#ffffff" stroke-width="2">
+<title>Siwalan: Kasus Balita 31, IDL 101.0%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="700" text-anchor="middle" x="290" y="60">Siwalan</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 150,50 L 240,35 L 230,65 L 180,95 Z" fill="#E2E8F0" stroke="#ffffff" stroke-width="2">
+<title>Wonokerto: Kasus Balita 28, IDL 100.5%</title>
+</path>
+<text fill="#0F2744" font-size="10" font-weight="600" text-anchor="middle" x="195" y="70">Wonokerto</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 560,20 L 670,30 L 650,85 L 590,70 Z" fill="#CBD5E1" stroke="#ffffff" stroke-width="2">
+<title>Buaran: Kasus Balita 39, IDL 103.1%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="700" text-anchor="middle" x="618" y="55">Buaran</text>
+<!-- Central Transition / Dense Urban Subdistricts -->
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 360,75 L 430,85 L 450,145 L 340,150 L 290,95 Z" fill="#FDA4AF" stroke="#ffffff" stroke-width="2">
+<title>Kedungwuni: Kasus Balita 85 (Zona Merah), IDL 104.2%</title>
+</path>
+<text fill="#881337" font-size="12" font-weight="800" text-anchor="middle" x="375" y="115">Kedungwuni (85)</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 430,85 L 520,80 L 530,140 L 450,145 Z" fill="#8EACCD" stroke="#ffffff" stroke-width="2">
+<title>Karangdadap: Kasus Balita 41, IDL 101.8%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="700" text-anchor="middle" x="480" y="115">Karangdadap</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 230,65 L 290,95 L 340,150 L 260,160 L 200,120 Z" fill="#D2E0FB" stroke="#ffffff" stroke-width="2">
+<title>Sragi: Kasus Balita 42, IDL 98.7%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="700" text-anchor="middle" x="270" y="125">Sragi</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 120,95 L 200,120 L 220,180 L 130,170 Z" fill="#E2E8F0" stroke="#ffffff" stroke-width="2">
+<title>Kesesi: Kasus Balita 37, IDL 102.5%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="600" text-anchor="middle" x="170" y="145">Kesesi</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 260,160 L 370,150 L 400,210 L 290,215 Z" fill="#133E87" stroke="#ffffff" stroke-width="2">
+<title>Kajen (Ibukota Kabupaten): Kasus Balita 52, IDL 103.4%</title>
+</path>
+<text fill="#FFFFFF" font-size="12" font-weight="800" text-anchor="middle" x="330" y="185">Kajen (Ibukota)</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 370,150 L 460,145 L 480,205 L 400,210 Z" fill="#8EACCD" stroke="#ffffff" stroke-width="2">
+<title>Doro: Kasus Balita 36, IDL 100.9%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="700" text-anchor="middle" x="430" y="180">Doro</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 460,145 L 560,140 L 570,200 L 480,205 Z" fill="#CBD5E1" stroke="#ffffff" stroke-width="2">
+<title>Wonopringgo: Kasus Balita 33, IDL 101.4%</title>
+</path>
+<text fill="#0F2744" font-size="10" font-weight="600" text-anchor="middle" x="515" y="175">Wonopringgo</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 560,140 L 660,135 L 670,195 L 570,200 Z" fill="#E2E8F0" stroke="#ffffff" stroke-width="2">
+<title>Talun: Kasus Balita 27, IDL 99.2%</title>
+</path>
+<text fill="#0F2744" font-size="10" font-weight="600" text-anchor="middle" x="615" y="170">Talun</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 220,180 L 290,215 L 260,265 L 180,240 Z" fill="#D2E0FB" stroke="#ffffff" stroke-width="2">
+<title>Bojong: Kasus Balita 35, IDL 102.1%</title>
+</path>
+<text fill="#0F2744" font-size="11" font-weight="600" text-anchor="middle" x="235" y="225">Bojong</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 140,180 L 220,180 L 180,240 L 110,230 Z" fill="#CBD5E1" stroke="#ffffff" stroke-width="2">
+<title>Karanganyar: Kasus Balita 29, IDL 100.8%</title>
+</path>
+<text fill="#0F2744" font-size="10" font-weight="600" text-anchor="middle" x="165" y="210">Karanganyar</text>
+<!-- Southern Upland / 3T Mountain Subdistricts -->
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 290,215 L 400,210 L 380,270 L 270,265 Z" fill="#FDE68A" stroke="#ffffff" stroke-width="2">
+<title>Paninggaran: Kasus Balita 21, Wilayah Pegunungan 3T</title>
+</path>
+<text fill="#78350F" font-size="11" font-weight="700" text-anchor="middle" x="335" y="245">Paninggaran</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 400,210 L 480,205 L 470,270 L 380,270 Z" fill="#FDE68A" stroke="#ffffff" stroke-width="2">
+<title>Lebakbarang: Kasus Balita 14, Wilayah Pegunungan 3T</title>
+</path>
+<text fill="#78350F" font-size="11" font-weight="700" text-anchor="middle" x="430" y="245">Lebakbarang</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 480,205 L 590,200 L 580,270 L 470,270 Z" fill="#FDE68A" stroke="#ffffff" stroke-width="2">
+<title>Petungkriyono: Kasus Balita 9, Wilayah Pegunungan 3T (CFR 0%)</title>
+</path>
+<text fill="#78350F" font-size="11" font-weight="700" text-anchor="middle" x="535" y="245">Petungkriyono</text>
+<path class="hover:opacity-80 cursor-pointer transition-opacity" d="M 200,240 L 270,265 L 250,275 L 180,255 Z" fill="#FDE68A" stroke="#ffffff" stroke-width="2">
+<title>Kandangserang: Kasus Balita 18, Wilayah Pegunungan 3T</title>
+</path>
+<text fill="#78350F" font-size="10" font-weight="700" text-anchor="middle" x="225" y="260">Kandangserang</text>
+</svg>
+</div>
+<!-- Map Overlay Legend Box -->
+<div class="relative z-10 self-start bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant/40 rounded p-2.5 shadow-sm max-w-[240px]">
+<span class="text-label-md font-label-md text-primary block mb-1.5">Klasifikasi Kasus Pneumonia</span>
+<div class="space-y-1 text-[11px] text-on-surface-variant font-medium">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-xs bg-[#FDA4AF] border border-[#F43F5E]"></span>
+<span>Tinggi (≥ 50 Kasus) - Zona Merah</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-xs bg-[#8EACCD] border border-[#385CA6]"></span>
+<span>Sedang (30 - 49 Kasus)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-xs bg-[#D2E0FB] border border-[#93CCFF]"></span>
+<span>Rendah (&lt; 30 Kasus)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-xs bg-[#FDE68A] border border-[#D97706]"></span>
+<span>Daerah Khusus 3T Pegunungan</span>
+</div>
+</div>
+</div>
+<!-- Bottom Geo Badge -->
+<div class="relative z-10 self-end bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant/40 rounded px-2.5 py-1 text-[11px] text-on-surface-variant flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-secondary text-[14px]" data-icon="explore">explore</span>
+              Sistem Koordinat: WGS84 Dinkes GIS
+            </div>
+</div>
+</div>
+<!-- Komparasi Matriks Indikator: Kepadatan Penduduk vs Beban Kasus Balita -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-sm">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="text-title-lg font-title-lg text-primary">Matriks Korelasi: Kepadatan Penduduk vs Kasus Balita</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Analisis beban transmisi pneumonia terhadap rasio anggota rumah tangga per wilayah</p>
+</div>
+<span class="bg-surface-container text-on-secondary-container text-label-md font-label-md px-2.5 py-1 rounded">Regresi Linier: r = +0.78</span>
+</div>
+<!-- Scatter Matrix Canvas Mockup -->
+<div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Quick Trend Insights -->
+<div class="bg-surface-container-low rounded-lg p-3.5 border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<span class="text-label-md font-label-md text-secondary block uppercase">Klaster Urban Padat</span>
+<span class="text-title-lg font-title-lg text-primary mt-1 block">Kedungwuni &amp; Wiradesa</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+                  Memiliki kepadatan &gt;1.400 jiwa/km² dengan rerata 3.42 jiwa/RT. Transmisi droplet saluran pernapasan 2.3x lebih aktif.
+                </p>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant font-medium">Intervensi:</span>
+<span class="text-secondary font-semibold">Home Care Posyandu</span>
+</div>
+</div>
+<!-- Graphic Distribution Mini-Chart -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-lg border border-outline-variant/30 p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant mb-2">
+<span class="font-semibold text-primary">Sebaran 5 Kecamatan Beban Terbesar</span>
+<span class="text-[11px]">Sumbu X: Jumlah Balita | Sumbu Y: Kasus</span>
+</div>
+<!-- Bars Matrix -->
+<div class="space-y-2.5">
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="font-medium text-primary">1. Kedungwuni (8.210 Balita)</span>
+<span class="font-bold text-error tabular-nums">85 Kasus (1.03%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="font-medium text-primary">2. Wiradesa (6.450 Balita)</span>
+<span class="font-bold text-[#E11D48] tabular-nums">58 Kasus (0.90%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-[#E11D48] h-full rounded-full" style="width: 58%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="font-medium text-primary">3. Kajen (5.890 Balita)</span>
+<span class="font-bold text-secondary tabular-nums">52 Kasus (0.88%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 52%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="font-medium text-primary">4. Tirto (5.120 Balita)</span>
+<span class="font-bold text-secondary tabular-nums">44 Kasus (0.86%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 44%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="font-medium text-primary">5. Sragi (4.930 Balita)</span>
+<span class="font-bold text-secondary tabular-nums">42 Kasus (0.85%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right 4-Columns: Profile UPTD Puskesmas Pembina & Catatan Operasional -->
+<div class="xl:col-span-4 space-y-5">
+<!-- Profile Puskesmas Penanggung Jawab Wilayah Prioritas -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-sm">
+<div class="flex items-center gap-2 pb-3 border-b border-outline-variant/20">
+<span class="w-2.5 h-6 bg-secondary rounded-sm"></span>
+<div>
+<h3 class="text-title-lg font-title-lg text-primary">Puskesmas Wilayah Prioritas</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">UPTD Penanggung Jawab Titik Kritis 2024</p>
+</div>
+</div>
+<!-- List of 3 Priority Facilities -->
+<div class="mt-4 space-y-3">
+<!-- Facility 1: Kedungwuni I -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-title-lg text-primary block">UPTD Puskesmas Kedungwuni I</span>
+<span class="text-body-sm text-on-surface-variant">Kepala: dr. H. Subagyo, M.Kes</span>
+</div>
+<span class="bg-[#FFE4E6] text-[#9F1239] text-[11px] font-semibold px-2 py-0.5 rounded">FasKes Darurat</span>
+</div>
+<div class="mt-2.5 grid grid-cols-3 gap-2 text-center text-body-sm border-t border-outline-variant/20 pt-2">
+<div>
+<span class="text-[11px] text-on-surface-variant block">Dokter</span>
+<span class="font-bold text-primary tabular-nums">6</span>
+</div>
+<div>
+<span class="text-[11px] text-on-surface-variant block">Bidan Desa</span>
+<span class="font-bold text-primary tabular-nums">18</span>
+</div>
+<div>
+<span class="text-[11px] text-on-surface-variant block">Kapasitas Rawat</span>
+<span class="font-bold text-primary tabular-nums">24 TT</span>
+</div>
+</div>
+</div>
+<!-- Facility 2: Wiradesa -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-title-lg text-primary block">UPTD Puskesmas Wiradesa</span>
+<span class="text-body-sm text-on-surface-variant">Kepala: dr. Nurhayati, Sp.A</span>
+</div>
+<span class="bg-[#E0F2FE] text-[#075985] text-[11px] font-semibold px-2 py-0.5 rounded">Puskesmas Siaga</span>
+</div>
+<div class="mt-2.5 grid grid-cols-3 gap-2 text-center text-body-sm border-t border-outline-variant/20 pt-2">
+<div>
+<span class="text-[11px] text-on-surface-variant block">Dokter</span>
+<span class="font-bold text-primary tabular-nums">5</span>
+</div>
+<div>
+<span class="text-[11px] text-on-surface-variant block">Bidan Desa</span>
+<span class="font-bold text-primary tabular-nums">15</span>
+</div>
+<div>
+<span class="text-[11px] text-on-surface-variant block">Kapasitas Rawat</span>
+<span class="font-bold text-primary tabular-nums">18 TT</span>
+</div>
+</div>
+</div>
+<!-- Facility 3: Petungkriyono (3T Daerah Terpencil) -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-title-lg text-primary block">UPTD Puskesmas Petungkriyono</span>
+<span class="text-body-sm text-on-surface-variant">Kepala: dr. Bagus Santoso</span>
+</div>
+<span class="bg-[#DCFCE7] text-[#166534] text-[11px] font-semibold px-2 py-0.5 rounded">Terkendali (0 CFR)</span>
+</div>
+<div class="mt-2.5 grid grid-cols-3 gap-2 text-center text-body-sm border-t border-outline-variant/20 pt-2">
+<div>
+<span class="text-[11px] text-on-surface-variant block">Dokter</span>
+<span class="font-bold text-primary tabular-nums">3</span>
+</div>
+<div>
+<span class="text-[11px] text-on-surface-variant block">Bidan Desa</span>
+<span class="font-bold text-primary tabular-nums">11</span>
+</div>
+<div>
+<span class="text-[11px] text-on-surface-variant block">Pusling 4WD</span>
+<span class="font-bold text-primary tabular-nums">2 Unit</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Catatan Operasional Penjangkauan & Posyandu Aktif -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-sm space-y-3.5">
+<div class="flex items-center gap-2 pb-2 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary" data-icon="assignment">assignment</span>
+<h3 class="text-title-lg font-title-lg text-primary">Catatan Penjangkauan Lapangan</h3>
+</div>
+<div class="space-y-2.5 text-body-sm font-body-sm">
+<div class="flex items-start gap-2.5 p-2 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5" data-icon="airport_shuttle">airport_shuttle</span>
+<div>
+<strong class="text-primary block font-medium">Puskesmas Keliling (Pusling) Daerah 3T</strong>
+<p class="text-on-surface-variant text-[13px] leading-relaxed">
+                  Jadwal rotasi mingguan di Lebakbarang &amp; Kandangserang berfokus pada balita demam dan batuk lebih dari 3 hari. Pasokan antibiotik oral &amp; oksigen botol portabel 100% terpenuhi.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-[#15803D] text-[20px] shrink-0 mt-0.5" data-icon="how_to_reg">how_to_reg</span>
+<div>
+<strong class="text-primary block font-medium">Keaktifan Kader Posyandu</strong>
+<p class="text-on-surface-variant text-[13px] leading-relaxed">
+                  Sebanyak 1.148 Posyandu aktif mencatat laju penimbangan dan skrining MTBS (Manajemen Terpadu Balita Sakit) mencapai 94.6% dari total sasaran 99.625 balita.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded bg-[#FFE4E6]/50 border border-[#FECDD3]">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5" data-icon="warning">warning</span>
+<div>
+<strong class="text-error block font-medium">Peringatan Kepatuhan Imunisasi PCV</strong>
+<p class="text-[#9F1239] text-[13px] leading-relaxed">
+                  Puskesmas Tirto &amp; Bojong diminta mempercepat dosis booster PCV 3 pada bayi usia 12 bulan menyusul cuaca pancaroba pesisir utara.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================= -->
+<!-- TABEL LENGKAP 19 KECAMATAN DI KABUPATEN PEKALONGAN        -->
+<!-- ========================================================= -->
+<section class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-outline-variant/20">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-6 bg-primary-container rounded-sm"></span>
+<h2 class="text-headline-md font-headline-md text-primary tracking-tight">Tabel Indikator Kesehatan 19 Kecamatan Lengkap</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+            Surveilans demografi kependudukan, balita berisiko, insiden pneumonia, dan cakupan Imunisasi Dasar Lengkap (IDL) Tahun 2024
+          </p>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-primary rounded text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="file_download">file_download</span>
+            Ekspor Excel
+          </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary-container text-surface hover:bg-primary rounded text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="print">print</span>
+            Cetak Rekap Dinkes
+          </button>
+</div>
+</div>
+<!-- Table Container with Horizontal Scroll for Widescreen tabular-nums -->
+<div class="mt-4 overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#F8FAFC] border-b border-[#E2E8F0] text-label-md font-label-md text-[#64748B] uppercase tracking-wider">
+<th class="py-3 px-3.5 text-center w-12">No</th>
+<th class="py-3 px-4">Kecamatan</th>
+<th class="py-3 px-4 text-right">Jumlah Penduduk</th>
+<th class="py-3 px-4 text-right">Rumah Tangga</th>
+<th class="py-3 px-4 text-right">Rata-rata Penduduk/RT</th>
+<th class="py-3 px-4 text-right">Jumlah Balita</th>
+<th class="py-3 px-4 text-right">Kasus Pneumonia</th>
+<th class="py-3 px-4 text-right">Capaian IDL (%)</th>
+<th class="py-3 px-4 text-center">Status Wilayah</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm font-body-sm text-on-surface">
+<!-- Row 1: Kandangserang -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">1</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Kandangserang</td>
+<td class="py-2.5 px-4 text-right tabular-nums">37.423</td>
+<td class="py-2.5 px-4 text-right tabular-nums">11.209</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,34</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3.612</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">18</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">101,2%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 2: Paninggaran -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">2</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Paninggaran</td>
+<td class="py-2.5 px-4 text-right tabular-nums">44.314</td>
+<td class="py-2.5 px-4 text-right tabular-nums">12.963</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,42</td>
+<td class="py-2.5 px-4 text-right tabular-nums">4.180</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">21</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">100,8%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 3: Lebakbarang -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">3</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Lebakbarang</td>
+<td class="py-2.5 px-4 text-right tabular-nums">11.602</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3.676</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,16</td>
+<td class="py-2.5 px-4 text-right tabular-nums">1.120</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">14</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">102,4%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 4: Petungkriyono -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">4</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Petungkriyono</td>
+<td class="py-2.5 px-4 text-right tabular-nums">13.635</td>
+<td class="py-2.5 px-4 text-right tabular-nums">4.444</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,07</td>
+<td class="py-2.5 px-4 text-right tabular-nums">1.290</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">9</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">103,1%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 5: Talun -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">5</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Talun</td>
+<td class="py-2.5 px-4 text-right tabular-nums">32.542</td>
+<td class="py-2.5 px-4 text-right tabular-nums">10.518</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,10</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3.190</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">27</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">99,2%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+<!-- Row 6: Doro -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">6</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Doro</td>
+<td class="py-2.5 px-4 text-right tabular-nums">46.780</td>
+<td class="py-2.5 px-4 text-right tabular-nums">14.150</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,31</td>
+<td class="py-2.5 px-4 text-right tabular-nums">4.510</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">36</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">100,9%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+<!-- Row 7: Karanganyar -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">7</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Karanganyar</td>
+<td class="py-2.5 px-4 text-right tabular-nums">39.120</td>
+<td class="py-2.5 px-4 text-right tabular-nums">12.210</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3.790</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">29</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">100,8%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 8: Kajen (Pusat Pemerintahan) -->
+<tr class="hover:bg-[#F1F5F9] transition-colors bg-[#EFF4FF]/40">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">8</td>
+<td class="py-2.5 px-4 font-bold text-primary flex items-center gap-1.5">
+                Kajen
+                <span class="text-[10px] bg-primary text-surface px-1.5 py-0.2 rounded">Ibukota</span>
+</td>
+<td class="py-2.5 px-4 text-right tabular-nums">68.210</td>
+<td class="py-2.5 px-4 text-right tabular-nums">21.320</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">5.890</td>
+<td class="py-2.5 px-4 text-right font-bold text-[#E11D48] tabular-nums">52</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">103,4%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+<!-- Row 9: Kesesi -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">9</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Kesesi</td>
+<td class="py-2.5 px-4 text-right tabular-nums">71.490</td>
+<td class="py-2.5 px-4 text-right tabular-nums">22.840</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,13</td>
+<td class="py-2.5 px-4 text-right tabular-nums">6.230</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">37</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">102,5%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+<!-- Row 10: Sragi -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">10</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Sragi</td>
+<td class="py-2.5 px-4 text-right tabular-nums">58.910</td>
+<td class="py-2.5 px-4 text-right tabular-nums">18.420</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">4.930</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">42</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">98,7%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+<!-- Row 11: Siwalan -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">11</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Siwalan</td>
+<td class="py-2.5 px-4 text-right tabular-nums">40.230</td>
+<td class="py-2.5 px-4 text-right tabular-nums">12.570</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3.880</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">31</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">101,0%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 12: Bojong -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">12</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Bojong</td>
+<td class="py-2.5 px-4 text-right tabular-nums">76.320</td>
+<td class="py-2.5 px-4 text-right tabular-nums">23.850</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">6.910</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">35</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">102,1%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 13: Wonopringgo -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">13</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Wonopringgo</td>
+<td class="py-2.5 px-4 text-right tabular-nums">47.880</td>
+<td class="py-2.5 px-4 text-right tabular-nums">14.960</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">4.420</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">33</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">101,4%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 14: Kedungwuni (High Burden Red Zone) -->
+<tr class="hover:bg-[#F1F5F9] transition-colors bg-[#FFE4E6]/30">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">14</td>
+<td class="py-2.5 px-4 font-bold text-[#881337] flex items-center gap-1.5">
+                Kedungwuni
+                <span class="text-[10px] bg-[#BE123C] text-surface px-1.5 py-0.2 rounded font-normal">Kritis</span>
+</td>
+<td class="py-2.5 px-4 text-right tabular-nums font-semibold">102.430</td>
+<td class="py-2.5 px-4 text-right tabular-nums">29.950</td>
+<td class="py-2.5 px-4 text-right tabular-nums font-semibold">3,42</td>
+<td class="py-2.5 px-4 text-right tabular-nums font-semibold">8.210</td>
+<td class="py-2.5 px-4 text-right font-bold text-error tabular-nums">85</td>
+<td class="py-2.5 px-4 text-right font-semibold text-[#15803D] tabular-nums">104,2%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#FFE4E6] text-[#9F1239] px-2 py-0.5 rounded text-[11px] font-bold">Darurat</span></td>
+</tr>
+<!-- Row 15: Buaran -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">15</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Buaran</td>
+<td class="py-2.5 px-4 text-right tabular-nums">48.950</td>
+<td class="py-2.5 px-4 text-right tabular-nums">14.830</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,30</td>
+<td class="py-2.5 px-4 text-right tabular-nums">4.520</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">39</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">103,1%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+<!-- Row 16: Tirto -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">16</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Tirto</td>
+<td class="py-2.5 px-4 text-right tabular-nums">54.120</td>
+<td class="py-2.5 px-4 text-right tabular-nums">16.910</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">5.120</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">44</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">99,8%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+<!-- Row 17: Wiradesa -->
+<tr class="hover:bg-[#F1F5F9] transition-colors bg-[#FFE4E6]/20">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">17</td>
+<td class="py-2.5 px-4 font-bold text-primary">Wiradesa</td>
+<td class="py-2.5 px-4 text-right tabular-nums">72.410</td>
+<td class="py-2.5 px-4 text-right tabular-nums">22.620</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">6.450</td>
+<td class="py-2.5 px-4 text-right font-bold text-[#BE123C] tabular-nums">58</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">102,3%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#FFE4E6] text-[#9F1239] px-2 py-0.5 rounded text-[11px] font-bold">Darurat</span></td>
+</tr>
+<!-- Row 18: Wonokerto -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">18</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Wonokerto</td>
+<td class="py-2.5 px-4 text-right tabular-nums">36.190</td>
+<td class="py-2.5 px-4 text-right tabular-nums">11.310</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3.490</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">28</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">100,5%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[11px] font-semibold">Terkendali</span></td>
+</tr>
+<!-- Row 19: Karangdadap -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-2.5 px-3.5 text-center font-medium text-on-surface-variant tabular-nums">19</td>
+<td class="py-2.5 px-4 font-semibold text-primary">Karangdadap</td>
+<td class="py-2.5 px-4 text-right tabular-nums">41.980</td>
+<td class="py-2.5 px-4 text-right tabular-nums">13.110</td>
+<td class="py-2.5 px-4 text-right tabular-nums">3,20</td>
+<td class="py-2.5 px-4 text-right tabular-nums">4.120</td>
+<td class="py-2.5 px-4 text-right font-medium text-primary tabular-nums">41</td>
+<td class="py-2.5 px-4 text-right font-medium text-[#15803D] tabular-nums">101,8%</td>
+<td class="py-2.5 px-4 text-center"><span class="bg-[#E0F2FE] text-[#075985] px-2 py-0.5 rounded text-[11px] font-semibold">Siaga</span></td>
+</tr>
+</tbody>
+<!-- Table Footer Total Summary -->
+<tfoot>
+<tr class="bg-primary text-surface font-semibold border-t-2 border-primary-container">
+<td class="py-3 px-4 uppercase tracking-wider text-label-md font-label-md" colspan="2">Total Kabupaten Pekalongan</td>
+<td class="py-3 px-4 text-right tabular-nums font-bold">1.026.546</td>
+<td class="py-3 px-4 text-right tabular-nums font-bold">326.721</td>
+<td class="py-3 px-4 text-right tabular-nums font-bold">3,14</td>
+<td class="py-3 px-4 text-right tabular-nums font-bold">99.625</td>
+<td class="py-3 px-4 text-right tabular-nums font-bold text-secondary-fixed">669</td>
+<td class="py-3 px-4 text-right tabular-nums font-bold text-[#DCFCE7]">101,5%</td>
+<td class="py-3 px-4 text-center">
+<span class="bg-[#DCFCE7] text-[#14532D] px-2.5 py-0.5 rounded text-[11px] font-bold">Terkendali</span>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</section>
+<!-- Operational Synthesis & Strategic Directives Footer Blocks -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Box 1: Catatan Penting -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-lg p-4 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-[#FEF3C7] text-[#B45309] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<div>
+<span class="font-title-lg text-primary text-label-lg font-label-lg block">Validasi &amp; Verifikasi Wilayah</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            Data cakupan imunisasi dasar lengkap (&gt;100%) merefleksikan pencatatan kohort bayi baru lahir dan kedatangan balita non-domisili dari Kabupaten Batang dan Pemalang yang berobat ke Puskesmas perbatasan.
+          </p>
+</div>
+</div>
+<!-- Box 2: Kesimpulan Analitik -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-lg p-4 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-[#E0F2FE] text-[#0369A1] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="insights">insights</span>
+</div>
+<div>
+<span class="font-title-lg text-primary text-label-lg font-label-lg block">Rekomendasi Distribusi Nakes</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            Alokasi dokter spesialis anak keliling dioptimalkan tiap Selasa-Kamis di Puskesmas Kedungwuni I, Wiradesa, dan Kajen untuk menekan Case Fatality Rate balita di bawah 1,5%.
+          </p>
+</div>
+</div>
+<!-- Box 3: Kontak & Integrasi Satu Data -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-lg p-4 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-[#DCFCE7] text-[#15803D] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="cloud_sync">cloud_sync</span>
+</div>
+<div>
+<span class="font-title-lg text-primary text-label-lg font-label-lg block">Sinkronisasi Satu Data Dinkes</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            Terhubung real-time dengan Pusdatin Kemenkes RI, e-PPGBM Stunting, dan Sistem Informasi Surveilans Terpadu (SIST) Jawa Tengah. Update otomatis tiap pukul 00:00 WIB.
+          </p>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================================= -->
+<!-- SHARED COMPONENT 3: Footer                                -->
+<!-- ========================================================= -->
+<footer class="ml-[260px] w-[calc(100%-260px)] bg-surface-container-lowest border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+        © 2024 Dinas Kesehatan Pemerintah Kabupaten Pekalongan. Sistem Informasi Surveilans Terpadu.
+      </span>
+</div>
+<div class="flex items-center gap-5 mt-2 md:mt-0 text-label-md font-label-md">
+<a class="text-secondary hover:text-primary transition-colors" href="#">Satu Data Kesehatan</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Portal Pemkab Pekalongan</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Kebijakan Privasi</a>
+<span class="text-outline-variant">•</span>
+<a class="text-error hover:text-on-error-container font-semibold transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="phone_in_talk">phone_in_talk</span>
+        Kontak Darurat SPGDT 119
+      </a>
+</div>
+</footer>
+</body></html>

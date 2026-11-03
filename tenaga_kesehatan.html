@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Ketersediaan & Distribusi Tenaga Kesehatan - Dinkes Pekalongan 2024</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#0f2744",
+            "tertiary-fixed": "#cce5ff",
+            "surface-container-highest": "#d3e4fe",
+            "surface-container": "#e5eeff",
+            "error": "#ba1a1a",
+            "secondary-container": "#8eafff",
+            "tertiary-container": "#002942",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#d4e3ff",
+            "error-container": "#ffdad6",
+            "background": "#f8f9ff",
+            "on-primary-container": "#798fb1",
+            "on-tertiary-container": "#2c94d8",
+            "on-surface": "#0b1c30",
+            "on-background": "#0b1c30",
+            "surface-variant": "#d3e4fe",
+            "secondary-fixed": "#d9e2ff",
+            "surface-bright": "#f8f9ff",
+            "on-tertiary-fixed-variant": "#004b73",
+            "tertiary": "#001323",
+            "on-tertiary-fixed": "#001d31",
+            "inverse-on-surface": "#eaf1ff",
+            "on-secondary-container": "#164089",
+            "secondary-fixed-dim": "#b0c6ff",
+            "surface-container-high": "#dce9ff",
+            "surface": "#f8f9ff",
+            "inverse-surface": "#213145",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#74777e",
+            "surface-container-low": "#eff4ff",
+            "on-secondary-fixed": "#001944",
+            "on-primary-fixed-variant": "#324866",
+            "on-secondary-fixed-variant": "#1b448d",
+            "tertiary-fixed-dim": "#93ccff",
+            "inverse-primary": "#b2c8ed",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#021c39",
+            "surface-dim": "#cbdbf5",
+            "primary-fixed-dim": "#b2c8ed",
+            "primary": "#001229",
+            "secondary": "#385ca6",
+            "surface-tint": "#4a5f7f",
+            "outline-variant": "#c4c6ce",
+            "on-surface-variant": "#44474d",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.25rem",
+            "margin": "1.75rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "sans": ["Lato", "sans-serif"],
+            "headline-xl": ["Lato", "sans-serif"],
+            "body-lg": ["Lato", "sans-serif"],
+            "body-md": ["Lato", "sans-serif"],
+            "metric-display": ["Lato", "sans-serif"],
+            "display-lg": ["Lato", "sans-serif"],
+            "body-sm": ["Lato", "sans-serif"],
+            "label-lg": ["Lato", "sans-serif"],
+            "title-lg": ["Lato", "sans-serif"],
+            "headline-lg": ["Lato", "sans-serif"],
+            "headline-md": ["Lato", "sans-serif"],
+            "label-md": ["Lato", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-xl": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "metric-display": ["32px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-lg": ["13px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "title-lg": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "headline-lg": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["11px", { "lineHeight": "14px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #eff4ff;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #c4c6ce;
+      border-radius: 4px;
+    }
+    .tabular-numbers {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+
+<style>
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 100;
+      font-display: swap;
+      src: url('Lato/Lato-Thin.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 100;
+      font-display: swap;
+      src: url('Lato/Lato-ThinItalic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('Lato/Lato-Light.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 300;
+      font-display: swap;
+      src: url('Lato/Lato-LightItalic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('Lato/Lato-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url('Lato/Lato-Italic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('Lato/Lato-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('Lato/Lato-Bold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('Lato/Lato-Bold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 700;
+      font-display: swap;
+      src: url('Lato/Lato-BoldItalic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url('Lato/Lato-Black.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url('Lato/Lato-Black.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-style: italic;
+      font-weight: 900;
+      font-display: swap;
+      src: url('Lato/Lato-BlackItalic.ttf') format('truetype');
+    }
+
+    *, *::before, *::after, input, button, select, textarea {
+      font-family: 'Lato', sans-serif;
+    }
+    .material-symbols-outlined, [data-icon] {
+      font-family: 'Material Symbols Outlined' !important;
+    }
+    body {
+      font-family: 'Lato', sans-serif !important;
+    }
+</style>
+
+</head>
+<body class="bg-[#F4F7FB] text-on-surface antialiased font-body-md text-body-md overflow-x-hidden min-h-screen">
+<!-- ==================== SIDE NAVBAR (ANCHOR SHARED COMPONENT) ==================== -->
+<!-- BEGIN: Sidebar -->
+<aside class="fixed top-0 left-0 h-screen w-64 bg-[#0b224e] text-white flex-shrink-0 flex flex-col justify-between shadow-xl z-40 pt-2 pb-0 overflow-hidden">
+<!-- Top Part: Logo & Navigation Items -->
+<div class="px-3 py-1 flex flex-col items-center flex-shrink-0">
+<!-- Government Logo Emblem -->
+<div class="flex flex-col items-center mb-2 pt-0.5 text-center" data-purpose="region-branding">
+<div class="w-12 h-14 relative mb-1.5 flex items-center justify-center">
+<img src="assets/Logo-Kabupaten-Pekalongan.png" alt="Logo Kabupaten Pekalongan" class="w-full h-full object-contain drop-shadow"/>
+</div>
+<h1 class="text-xs font-bold tracking-wide uppercase leading-tight text-slate-100">Kabupaten<br>Pekalongan</h1>
+</div>
+<!-- Navigation Menu -->
+<nav class="w-full space-y-1" data-purpose="navigation-menu">
+<!-- Beranda -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="code.html">
+<svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+          Beranda
+        </a>
+<!-- Demografi -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="demografi.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path></svg>
+          Demografi
+        </a>
+<!-- Kasus Pneumonia -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="kasus_pneumonia.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"></circle><path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-6.5l-2.8 2.8m-7.4 7.4l-2.8 2.8m0-13l2.8 2.8m7.4 7.4l2.8 2.8"></path></svg>
+          Kasus Pneumonia
+        </a>
+<!-- Imunisasi -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="imunisasi.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          Imunisasi
+        </a>
+<!-- Tenaga Kesehatan (Active State) -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg bg-[#2563eb] text-white text-xs font-semibold shadow-sm transition-all duration-150" href="tenaga_kesehatan.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+          Tenaga Kesehatan
+        </a>
+<!-- Per Kecamatan -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="per_kecamatan.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20"><path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"></path></svg>
+          Per Kecamatan
+        </a>
+<!-- Tentang Data -->
+<a class="flex items-center px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#14326d] text-xs font-medium transition-colors" href="tentang_data.html">
+<svg class="w-4 h-4 mr-3 opacity-80" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path></svg>
+          Tentang Data
+        </a>
+</nav>
+</div>
+<!-- Bottom Healthcare Mother & Child Illustration -->
+<div class="w-full h-1/2 px-2 flex items-end justify-center flex-shrink-0" data-purpose="sidebar-bottom-illustration">
+<img src="assets/Protected Mother and Baby Illustration.png" alt="Ilustrasi Ibu dan Bayi Sehat" class="w-full h-full object-contain object-bottom drop-shadow-lg"/>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- ==================== TOP NAVIGATION BAR ==================== -->
+<header class="sticky top-0 right-0 z-30 ml-64 w-[calc(100%-16rem)] bg-surface-container-lowest border-b border-outline-variant/30 px-7 py-3 flex justify-between items-center shadow-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h1 class="text-headline-md font-headline-md text-primary font-bold tracking-tight">Ketersediaan & Distribusi Tenaga Kesehatan</h1>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#DCFCE7] text-[#166534]">RESMI DINKES</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Kabupaten Pekalongan – Tahun 2024 • Program Pencegahan Pneumonia & Stunting Balita</p>
+</div>
+<!-- Trailing Actions & User Profile -->
+<div class="flex items-center gap-3">
+<!-- Filter Button Kecamatan -->
+<div class="flex items-center gap-2 bg-[#F8FAFC] border border-[#CBD5E1] rounded-lg px-3 py-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="filter_alt">filter_alt</span>
+<span class="font-medium text-xs">Filter Kecamatan: Semua</span>
+</div>
+<!-- Filter Tahun Pill (Active state) -->
+<div class="flex items-center gap-2 bg-primary-container text-white px-3.5 py-1.5 rounded-lg text-body-sm font-body-sm shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed" data-icon="calendar_today">calendar_today</span>
+<span class="font-semibold text-xs">Tahun: 2024</span>
+</div>
+<!-- Notification Action -->
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Notifikasi Sistem">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-white"></span>
+</button>
+<div class="h-6 w-px bg-outline-variant/40 mx-1"></div>
+<!-- Administrator Profile -->
+<div class="flex items-center gap-2.5 pl-1">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of an Indonesian public health data officer wearing formal blue medical administrative uniform, crisp indoor lighting with soft focus hospital office background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_bAniO3biOztD_xs6xcEdtQ7YbRcGxzkfHZy4q3TW9TTHfKw0kvqoYWrHJ7q7FsYaxRkOgdCKHLjV3VEgir-pew9MMxtv6A32dSzpaWRJFdd_uJZODdn0U-wNVJ5PG-bHRZUQk-2woX4v_xdoU-4eZpM9j0y3MCLXdeLz0nSg7RZRfEIkPR3wZ5iIR8T-b3vmYw_EcVQBza-FvzpnCHno7aPJjzPQGxSDE05b8Ei4"/>
+</div>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-label-md font-label-md text-on-surface leading-none">Dra. N. Sulistiyani</span>
+<span class="text-[10px] text-on-surface-variant">Admin Surveilans Dinkes</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT WORKSPACE ==================== -->
+<main class="ml-64 w-[calc(100%-16rem)] px-7 py-6 max-w-[1920px] flex flex-col gap-6">
+<!-- KPI METRIC CARDS ROW (Controlled Pastel Categorization) -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- KPI 1: Biru Pastel (Total Nakes) -->
+<div class="bg-[#E0F2FE] border border-[#BAE6FD] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between transition-all hover:shadow-[0_8px_24px_rgba(15,39,68,0.07)] hover:-translate-y-0.5">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-label-md font-label-md uppercase tracking-wider text-[#0369A1] font-bold">TOTAL TENAGA KESEHATAN</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-metric-display font-metric-display text-[#0C4A6E] tabular-numbers tracking-tight">2.594</span>
+<span class="text-body-sm font-body-sm text-[#0369A1] font-semibold">orang</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center text-[#0284C7] shadow-sm">
+<span class="material-symbols-outlined text-[26px]" data-icon="medical_services">medical_services</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#BAE6FD]/70 flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-[#0369A1] text-xs">Cakupan Wilayah: 19 Kecamatan</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-white/90 text-[#0284C7]">
+            +4,8% YoY
+          </span>
+</div>
+</div>
+<!-- KPI 2: Hijau Pastel (Perawat & Bidan) -->
+<div class="bg-[#DCFCE7] border border-[#BBF7D0] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between transition-all hover:shadow-[0_8px_24px_rgba(15,39,68,0.07)] hover:-translate-y-0.5">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-label-md font-label-md uppercase tracking-wider text-[#15803D] font-bold">PERAWAT & BIDAN DESA</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-metric-display font-metric-display text-[#14532D] tabular-numbers tracking-tight">1.722</span>
+<span class="text-body-sm font-body-sm text-[#15803D] font-semibold">orang</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center text-[#16A34A] shadow-sm">
+<span class="material-symbols-outlined text-[26px]" data-icon="health_and_safety">health_and_safety</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#BBF7D0]/70 flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-[#15803D] text-xs font-medium">1.011 Perawat • 711 Bidan</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#22C55E]/20 text-[#14532D]">
+            66,4% Total
+          </span>
+</div>
+</div>
+<!-- KPI 3: Ungu Pastel (Dokter Umum & Spesialis) -->
+<div class="bg-[#F3E8FF] border border-[#E9D5FF] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between transition-all hover:shadow-[0_8px_24px_rgba(15,39,68,0.07)] hover:-translate-y-0.5">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-label-md font-label-md uppercase tracking-wider text-[#7E22CE] font-bold">DOKTER UMUM & SPESIALIS</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-metric-display font-metric-display text-[#581C87] tabular-numbers tracking-tight">263</span>
+<span class="text-body-sm font-body-sm text-[#7E22CE] font-semibold">dokter</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center text-[#9333EA] shadow-sm">
+<span class="material-symbols-outlined text-[26px]" data-icon="stethoscope" style="font-variation-settings: 'FILL' 1;">respiratory_rate</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#E9D5FF]/70 flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-[#7E22CE] text-xs font-medium">135 Dokter Umum • 128 Spesialis</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#A855F7]/20 text-[#581C87]">
+            Rasio 0,26‰
+          </span>
+</div>
+</div>
+<!-- KPI 4: Oranye Pastel (Tenaga Gizi & Penunjang Lain) -->
+<div class="bg-[#FFEDD5] border border-[#FED7AA] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between transition-all hover:shadow-[0_8px_24px_rgba(15,39,68,0.07)] hover:-translate-y-0.5">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-label-md font-label-md uppercase tracking-wider text-[#C2410C] font-bold">TENAGA GIZI & LAINNYA</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-metric-display font-metric-display text-[#7C2D12] tabular-numbers tracking-tight">609</span>
+<span class="text-body-sm font-body-sm text-[#C2410C] font-semibold">nakes</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center text-[#EA580C] shadow-sm">
+<span class="material-symbols-outlined text-[26px]" data-icon="groups">groups</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#FED7AA]/70 flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-[#C2410C] text-xs font-medium">58 Nutrisionis • 559 Penunjang Medis</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#F97316]/20 text-[#7C2D12]">
+            Intervensi Gizi
+          </span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: BENTO GRID ANALYTICS (Widescreen High-Precision Layout) -->
+<div class="grid grid-cols-12 gap-5">
+<!-- LEFT: Komposisi Tenaga Kesehatan Bar Chart (7 Cols) -->
+<div class="col-span-12 xl:col-span-7 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0_1px_3px_rgba(15,39,68,0.04)] overflow-hidden flex flex-col">
+<!-- Navy Header Bar -->
+<div class="bg-primary-container text-white px-5 py-3.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<h2 class="text-title-lg font-title-lg text-white">Komposisi Tenaga Kesehatan Tahun 2024</h2>
+</div>
+<span class="text-label-md font-label-md text-on-primary-container uppercase tracking-wider">Unit Kerja Dinkes & RSUD</span>
+</div>
+<div class="p-5 flex flex-col justify-between flex-1 gap-5">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Proporsi tenaga medis berdasar klasifikasi fungsional kesehatan guna akselerasi deteksi dini infeksi pneumonia serta monitoring status nutrisi anak balita.
+          </p>
+<!-- Horizontal Bar Chart Bars with Quantitative Tabular Grid -->
+<div class="flex flex-col gap-3.5 my-auto">
+<!-- Bar 1: Perawat -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#133E87]"></span> Perawat
+                </span>
+<span class="font-bold tabular-numbers text-primary">1.011 <span class="font-normal text-on-surface-variant text-xs">(39,0%)</span></span>
+</div>
+<div class="w-full bg-[#F1F5F9] rounded-full h-3 overflow-hidden">
+<div class="bg-[#133E87] h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Bar 2: Bidan -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#385CA6]"></span> Bidan
+                </span>
+<span class="font-bold tabular-numbers text-primary">711 <span class="font-normal text-on-surface-variant text-xs">(27,4%)</span></span>
+</div>
+<div class="w-full bg-[#F1F5F9] rounded-full h-3 overflow-hidden">
+<div class="bg-[#385CA6] h-full rounded-full transition-all duration-500" style="width: 70.3%;"></div>
+</div>
+</div>
+<!-- Bar 3: Tenaga Kesehatan Lainnya -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#60A5FA]"></span> Tenaga Kesehatan Lainnya (Sanitarian/Farmasi/Lab)
+                </span>
+<span class="font-bold tabular-numbers text-primary">559 <span class="font-normal text-on-surface-variant text-xs">(21,5%)</span></span>
+</div>
+<div class="w-full bg-[#F1F5F9] rounded-full h-3 overflow-hidden">
+<div class="bg-[#60A5FA] h-full rounded-full transition-all duration-500" style="width: 55.2%;"></div>
+</div>
+</div>
+<!-- Bar 4: Dokter Umum -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#0D9488]"></span> Dokter Umum
+                </span>
+<span class="font-bold tabular-numbers text-primary">135 <span class="font-normal text-on-surface-variant text-xs">(5,2%)</span></span>
+</div>
+<div class="w-full bg-[#F1F5F9] rounded-full h-3 overflow-hidden">
+<div class="bg-[#0D9488] h-full rounded-full transition-all duration-500" style="width: 13.3%;"></div>
+</div>
+</div>
+<!-- Bar 5: Dokter Spesialis -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#8B5CF6]"></span> Dokter Spesialis (Anak, Paru, Penyakit Dalam)
+                </span>
+<span class="font-bold tabular-numbers text-primary">128 <span class="font-normal text-on-surface-variant text-xs">(4,9%)</span></span>
+</div>
+<div class="w-full bg-[#F1F5F9] rounded-full h-3 overflow-hidden">
+<div class="bg-[#8B5CF6] h-full rounded-full transition-all duration-500" style="width: 12.6%;"></div>
+</div>
+</div>
+<!-- Bar 6: Tenaga Gizi -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#F59E0B]"></span> Tenaga Gizi / Nutrisionis
+                </span>
+<span class="font-bold tabular-numbers text-primary">58 <span class="font-normal text-on-surface-variant text-xs">(2,2%)</span></span>
+</div>
+<div class="w-full bg-[#F1F5F9] rounded-full h-3 overflow-hidden">
+<div class="bg-[#F59E0B] h-full rounded-full transition-all duration-500" style="width: 5.7%;"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Axis Legend Marker -->
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant border-t border-outline-variant/20 pt-2 font-mono">
+<span>0</span>
+<span>250</span>
+<span>500</span>
+<span>750</span>
+<span>1.011 (Maksimum)</span>
+</div>
+</div>
+</div>
+<!-- RIGHT: Rasio Layanan Balita & Populasi (5 Cols) -->
+<div class="col-span-12 xl:col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0_1px_3px_rgba(15,39,68,0.04)] overflow-hidden flex flex-col">
+<div class="bg-primary-container text-white px-5 py-3.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+<h2 class="text-title-lg font-title-lg text-white">Rasio Standar Pelayanan Minimal (SPM)</h2>
+</div>
+<span class="text-label-md font-label-md bg-white/10 px-2 py-0.5 rounded text-white text-[11px]">Kemenkes RI</span>
+</div>
+<div class="p-5 flex flex-col justify-between flex-1 gap-4">
+<!-- Rasio 1: Bidan per Desa -->
+<div class="p-3.5 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold">Rasio Bidan per Desa / Kelurahan</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-xs">285 Desa di Kab. Pekalongan</span>
+</div>
+<div class="text-right">
+<span class="text-title-lg font-title-lg text-secondary tabular-numbers font-bold">2,49</span>
+<span class="block text-[11px] text-[#166534] font-semibold">Target: min. 1,00 (Terpenuhi)</span>
+</div>
+</div>
+<!-- Rasio 2: Perawat per 1000 Balita -->
+<div class="p-3.5 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold">Perawat per 1.000 Balita</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-xs">Basis: 99.625 Balita terdata</span>
+</div>
+<div class="text-right">
+<span class="text-title-lg font-title-lg text-secondary tabular-numbers font-bold">10,14</span>
+<span class="block text-[11px] text-[#166534] font-semibold">Status: Sangat Memadai</span>
+</div>
+</div>
+<!-- Rasio 3: Dokter per 1000 Penduduk -->
+<div class="p-3.5 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold">Dokter per 1.000 Penduduk</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-xs">Populasi 1.026.546 jiwa</span>
+</div>
+<div class="text-right">
+<span class="text-title-lg font-title-lg text-[#C2410C] tabular-numbers font-bold">0,26</span>
+<span class="block text-[11px] text-[#9A3412] font-semibold">Standar WHO: 1,00 (Kebutuhan +763)</span>
+</div>
+</div>
+<!-- Mini Callout -->
+<div class="bg-[#EFF6FF] border border-[#BFDBFE] rounded-lg p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#1D4ED8] text-[20px] shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="text-[12px] text-[#1E40AF] leading-relaxed">
+              Kapasitas perawat dan bidan desa mencukupi untuk skrining primer MTBS (Manajemen Terpadu Balita Sakit) di 27 wilayah kerja Puskesmas.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: SEBARAN WILAYAH & RSUD RUJUKAN + TABEL DATA FASIKES -->
+<div class="grid grid-cols-12 gap-5">
+<!-- Peta / Visual Sebaran 27 Puskesmas & 2 RSUD (7 Cols) -->
+<div class="col-span-12 xl:col-span-7 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0_1px_3px_rgba(15,39,68,0.04)] overflow-hidden flex flex-col">
+<div class="bg-primary-container text-white px-5 py-3.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary-container" data-icon="location_city">location_city</span>
+<h2 class="text-title-lg font-title-lg text-white">Sebaran Tenaga Medis di 27 UPTD Puskesmas & 2 RSUD</h2>
+</div>
+<span class="text-label-md font-label-md text-on-primary-container">Kawasan Dataran & Pegunungan</span>
+</div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<!-- Hospital Anchor Badges -->
+<div class="grid grid-cols-2 gap-3">
+<div class="border border-[#CBD5E1] rounded-lg p-3 bg-white flex items-center justify-between">
+<div>
+<span class="text-label-md font-label-md font-bold text-primary block">RSUD Kajen (Pusat Rujukan Selatan)</span>
+<span class="text-xs text-on-surface-variant">54 Dokter • 218 Perawat • 46 Bidan</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#DCFCE7] text-[#166534]">Tipe B</span>
+</div>
+<div class="border border-[#CBD5E1] rounded-lg p-3 bg-white flex items-center justify-between">
+<div>
+<span class="text-label-md font-label-md font-bold text-primary block">RSUD Kraton (Pusat Rujukan Utara)</span>
+<span class="text-xs text-on-surface-variant">74 Dokter • 312 Perawat • 58 Bidan</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#DCFCE7] text-[#166534]">Tipe B Pendidikan</span>
+</div>
+</div>
+<!-- Spatial Pekalongan Regional Visual Graphic -->
+<div class="relative bg-[#F8FAFC] border border-outline-variant/30 rounded-lg p-4 flex flex-col items-center justify-center min-h-[220px]">
+<div class="w-full flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Klasterisasi Zona Pelayanan Kesehatan</span>
+<div class="flex items-center gap-3 text-[11px]">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#133E87]"></span> Wilayah Pesisir/Kota</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#0D9488]"></span> Wilayah Tengah/Industri</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#EA580C]"></span> Wilayah Pegunungan (DTPK)</span>
+</div>
+</div>
+<!-- Stylized Regional Grid Nodes representing Pekalongan sub-districts -->
+<div class="grid grid-cols-4 sm:grid-cols-6 gap-2.5 w-full my-2">
+<div class="bg-white border border-[#133E87]/30 rounded p-2 text-center hover:border-[#133E87] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Wiradesa</span>
+<span class="text-[10px] text-on-surface-variant">42 Nakes</span>
+</div>
+<div class="bg-white border border-[#133E87]/30 rounded p-2 text-center hover:border-[#133E87] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Kedungwuni I</span>
+<span class="text-[10px] text-on-surface-variant">51 Nakes</span>
+</div>
+<div class="bg-white border border-[#133E87]/30 rounded p-2 text-center hover:border-[#133E87] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Kedungwuni II</span>
+<span class="text-[10px] text-on-surface-variant">38 Nakes</span>
+</div>
+<div class="bg-white border border-[#0D9488]/30 rounded p-2 text-center hover:border-[#0D9488] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Kajen I</span>
+<span class="text-[10px] text-on-surface-variant">46 Nakes</span>
+</div>
+<div class="bg-white border border-[#0D9488]/30 rounded p-2 text-center hover:border-[#0D9488] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Kajen II</span>
+<span class="text-[10px] text-on-surface-variant">39 Nakes</span>
+</div>
+<div class="bg-white border border-[#0D9488]/30 rounded p-2 text-center hover:border-[#0D9488] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Bojong I</span>
+<span class="text-[10px] text-on-surface-variant">44 Nakes</span>
+</div>
+<div class="bg-white border border-[#0D9488]/30 rounded p-2 text-center hover:border-[#0D9488] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Wonopringgo</span>
+<span class="text-[10px] text-on-surface-variant">40 Nakes</span>
+</div>
+<div class="bg-white border border-[#0D9488]/30 rounded p-2 text-center hover:border-[#0D9488] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Doro I</span>
+<span class="text-[10px] text-on-surface-variant">35 Nakes</span>
+</div>
+<div class="bg-white border border-[#0D9488]/30 rounded p-2 text-center hover:border-[#0D9488] transition-colors">
+<span class="block text-[11px] font-bold text-primary">Kesesi I</span>
+<span class="text-[10px] text-on-surface-variant">41 Nakes</span>
+</div>
+<div class="bg-orange-50 border border-[#EA580C]/40 rounded p-2 text-center hover:border-[#EA580C] transition-colors">
+<span class="block text-[11px] font-bold text-[#9A3412]">Lebakbarang</span>
+<span class="text-[10px] text-[#C2410C] font-semibold">27 Nakes (DTPK)</span>
+</div>
+<div class="bg-orange-50 border border-[#EA580C]/40 rounded p-2 text-center hover:border-[#EA580C] transition-colors">
+<span class="block text-[11px] font-bold text-[#9A3412]">Petungkriyono</span>
+<span class="text-[10px] text-[#C2410C] font-semibold">29 Nakes (DTPK)</span>
+</div>
+<div class="bg-orange-50 border border-[#EA580C]/40 rounded p-2 text-center hover:border-[#EA580C] transition-colors">
+<span class="block text-[11px] font-bold text-[#9A3412]">Kandangserang</span>
+<span class="text-[10px] text-[#C2410C] font-semibold">32 Nakes (DTPK)</span>
+</div>
+</div>
+<!-- Geography Note -->
+<p class="text-[11px] text-on-surface-variant text-center mt-1">
+              *Tiga puskesmas dataran tinggi terpencil (Lebakbarang, Petungkriyono, Kandangserang) diprioritaskan insentif tunjangan fungsional & telemedicine rujukan Pneumonia Balita ke RSUD Kajen.
+            </p>
+</div>
+</div>
+</div>
+<!-- Kebutuhan vs Ketersediaan Tenaga Medis Per Faskes Sample (5 Cols) -->
+<div class="col-span-12 xl:col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-[0_1px_3px_rgba(15,39,68,0.04)] overflow-hidden flex flex-col">
+<div class="bg-primary-container text-white px-5 py-3.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+<h2 class="text-title-lg font-title-lg text-white">Analisis Kebutuhan Tenaga (ABK 2024)</h2>
+</div>
+<span class="text-label-md font-label-md text-on-primary-container">Data Sampel Faskes</span>
+</div>
+<div class="p-0 flex-1 overflow-x-auto custom-scroll">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-[#F8FAFC] text-[11px] uppercase text-[#64748B] font-semibold border-b border-[#E2E8F0]">
+<tr>
+<th class="px-4 py-3">Fasilitas Kesehatan</th>
+<th class="px-3 py-3 text-right">Ada</th>
+<th class="px-3 py-3 text-right">Ideal</th>
+<th class="px-3 py-3 text-right">Gap</th>
+<th class="px-4 py-3 text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E2E8F0]">
+<!-- Row 1 -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="px-4 py-3 font-medium text-on-surface">Pusk. Petungkriyono</td>
+<td class="px-3 py-3 text-right tabular-numbers">29</td>
+<td class="px-3 py-3 text-right tabular-numbers">35</td>
+<td class="px-3 py-3 text-right tabular-numbers text-error font-semibold">-6</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-[#FFE4E6] text-[#9F1239]">Prioritas</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="px-4 py-3 font-medium text-on-surface">Pusk. Lebakbarang</td>
+<td class="px-3 py-3 text-right tabular-numbers">27</td>
+<td class="px-3 py-3 text-right tabular-numbers">32</td>
+<td class="px-3 py-3 text-right tabular-numbers text-error font-semibold">-5</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-[#FFE4E6] text-[#9F1239]">Prioritas</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="px-4 py-3 font-medium text-on-surface">Pusk. Kandangserang</td>
+<td class="px-3 py-3 text-right tabular-numbers">32</td>
+<td class="px-3 py-3 text-right tabular-numbers">38</td>
+<td class="px-3 py-3 text-right tabular-numbers text-error font-semibold">-6</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-[#FFE4E6] text-[#9F1239]">Prioritas</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="px-4 py-3 font-medium text-on-surface">Pusk. Kedungwuni I</td>
+<td class="px-3 py-3 text-right tabular-numbers">51</td>
+<td class="px-3 py-3 text-right tabular-numbers">52</td>
+<td class="px-3 py-3 text-right tabular-numbers text-on-surface-variant">-1</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-[#DCFCE7] text-[#166534]">Terkendali</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="px-4 py-3 font-medium text-on-surface">RSUD Kajen (Pneumo Balita)</td>
+<td class="px-3 py-3 text-right tabular-numbers">318</td>
+<td class="px-3 py-3 text-right tabular-numbers">330</td>
+<td class="px-3 py-3 text-right tabular-numbers text-on-surface-variant">-12</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-[#E0F2FE] text-[#075985]">Siaga</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Total Defisit Dokter Gigi & Dokter Spesialis Anak: <strong>14 orang</strong></span>
+<button class="text-xs font-semibold text-secondary hover:text-[#133E87] inline-flex items-center gap-1">
+            Lihat 27 Puskesmas Lengkap →
+          </button>
+</div>
+</div>
+</div>
+<!-- SECTION 4: EXECUTIVE POLICY CARDS & SUMMARY -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Card Catatan Penting -->
+<div class="bg-[#FEFCE8] border border-[#FEF08A] rounded-xl p-4 flex gap-3.5 shadow-sm">
+<div class="w-9 h-9 rounded-lg bg-[#FACC15]/20 flex items-center justify-center text-[#A16207] shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="warning">warning</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-[#854D0E] font-bold">Catatan Penting Distribusi</h3>
+<p class="text-body-sm font-body-sm text-[#713F12] mt-1 leading-relaxed text-xs">
+            Distribusi bidan dan perawat telah memenuhi 100% desa di Kab. Pekalongan, namun penempatan dokter umum tetap terpusat di kawasan pesisir (Wiradesa, Kedungwuni, Buaran).
+          </p>
+</div>
+</div>
+<!-- Card Ringkasan Kebijakan 2024 -->
+<div class="bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl p-4 flex gap-3.5 shadow-sm">
+<div class="w-9 h-9 rounded-lg bg-[#3B82F6]/20 flex items-center justify-center text-[#1D4ED8] shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment">assignment</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-[#1E40AF] font-bold">Kebijakan Wilayah DTPK 2024</h3>
+<p class="text-body-sm font-body-sm text-[#1E3A8A] mt-1 leading-relaxed text-xs">
+            Alokasi insentif khusus BOK (Bantuan Operasional Kesehatan) dan penugasan khusus Nusantara Sehat ditempatkan di Petungkriyono, Lebakbarang, dan Kandangserang guna menekan fatalitas pneumonia.
+          </p>
+</div>
+</div>
+<!-- Card Sumber Data Terpadu -->
+<div class="bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl p-4 flex gap-3.5 shadow-sm">
+<div class="w-9 h-9 rounded-lg bg-[#22C55E]/20 flex items-center justify-center text-[#15803D] shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-[#166534] font-bold">Validasi & Sumber Data</h3>
+<p class="text-body-sm font-body-sm text-[#14532D] mt-1 leading-relaxed text-xs">
+            Sistem Informasi SDM Kesehatan (SISDMK) Kemenkes RI cut-off 15 November 2024, disinkronkan dengan Badan Kepegawaian dan Pengembangan SDM (BKPSDM) Kab. Pekalongan.
+          </p>
+</div>
+</div>
+</div>
+</main>
+<!-- ==================== FOOTER (SHARED COMPONENT) ==================== -->
+<footer class="ml-64 w-[calc(100%-16rem)] bg-surface-container-lowest border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center px-7 py-4">
+<div class="flex items-center gap-2 mb-2 md:mb-0">
+<span class="text-label-lg font-label-lg text-primary font-bold">Dinas Kesehatan</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">© 2024 Dinas Kesehatan Pemerintah Kabupaten Pekalongan. Sistem Informasi Surveilans Terpadu.</span>
+</div>
+<!-- Navigation links from Shared Components JSON -->
+<div class="flex items-center gap-5 text-label-md font-label-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Satu Data Kesehatan</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Portal Pemkab Pekalongan</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Kebijakan Privasi</a>
+<a class="text-primary font-semibold hover:text-secondary transition-colors flex items-center gap-1" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-error inline-block"></span>
+        Kontak Darurat SPGDT 119
+      </a>
+</div>
+</footer>
+<!-- Micro-interactions JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Small interactivity for bar hover effect or tabular highlighting
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+          row.classList.add('bg-blue-50/50');
+        });
+        row.addEventListener('mouseleave', () => {
+          row.classList.remove('bg-blue-50/50');
+        });
+      });
+    });
+  </script>
+</body></html>

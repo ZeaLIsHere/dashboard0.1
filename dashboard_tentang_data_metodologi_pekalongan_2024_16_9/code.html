@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Kesehatan Publik - Tentang Data</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#0f2744",
+            "tertiary-fixed": "#cce5ff",
+            "surface-container-highest": "#d3e4fe",
+            "surface-container": "#e5eeff",
+            "error": "#ba1a1a",
+            "secondary-container": "#8eafff",
+            "tertiary-container": "#002942",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#d4e3ff",
+            "error-container": "#ffdad6",
+            "background": "#f8f9ff",
+            "on-primary-container": "#798fb1",
+            "on-tertiary-container": "#2c94d8",
+            "on-surface": "#0b1c30",
+            "on-background": "#0b1c30",
+            "surface-variant": "#d3e4fe",
+            "secondary-fixed": "#d9e2ff",
+            "surface-bright": "#f8f9ff",
+            "on-tertiary-fixed-variant": "#004b73",
+            "tertiary": "#001323",
+            "on-tertiary-fixed": "#001d31",
+            "inverse-on-surface": "#eaf1ff",
+            "on-secondary-container": "#164089",
+            "secondary-fixed-dim": "#b0c6ff",
+            "surface-container-high": "#dce9ff",
+            "surface": "#f8f9ff",
+            "inverse-surface": "#213145",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#74777e",
+            "surface-container-low": "#eff4ff",
+            "on-secondary-fixed": "#001944",
+            "on-primary-fixed-variant": "#324866",
+            "on-secondary-fixed-variant": "#1b448d",
+            "tertiary-fixed-dim": "#93ccff",
+            "inverse-primary": "#b2c8ed",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#021c39",
+            "surface-dim": "#cbdbf5",
+            "primary-fixed-dim": "#b2c8ed",
+            "primary": "#001229",
+            "secondary": "#385ca6",
+            "surface-tint": "#4a5f7f",
+            "outline-variant": "#c4c6ce",
+            "on-surface-variant": "#44474d",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.25rem",
+            "margin": "1.75rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "metric-display": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "metric-display": ["32px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-lg": ["13px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "title-lg": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "headline-lg": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["11px", { "lineHeight": "14px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(15, 39, 68, 0.15);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FB] text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- ==================== SIDE NAVBAR (FIXED LEFT 260px) ==================== -->
+<aside class="fixed top-0 left-0 h-screen w-[260px] z-40 bg-primary-container text-primary-fixed border-r border-outline-variant/10 flex flex-col justify-between p-4 shadow-none">
+<!-- Top Branding / Header -->
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-3 px-1 py-1.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest/10 p-1 flex items-center justify-center shrink-0 border border-white/10">
+<img class="w-8 h-8 object-contain" data-alt="Official regional emblem coat of arms of Kabupaten Pekalongan Central Java, stylized vector shield graphic with civic symbols in bright ceremonial green, gold, and red hues on navy backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWf4kD56f20WEx9dNHo1af0Fu1egA8x_U50URX-0wdNJ3psK2T1MavvOAjPq_caUnFz1StE41vGztezcWJw709nb6X4auLJ-1jJOAGKTvjnbz4F561yJQDMjNaeoIjIzC7lguJDBN2Nb1t9RXGfFSF45ULso8zDY4RcQL4red2ZGxKrJub9lsiDDRSpHbraPE_G0QBynRiksiNkqbDsV0XWI8dQHRH1sEczXe1o-ev"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-surface tracking-tight">Dinas Kesehatan</span>
+<span class="font-body-sm text-body-sm text-on-primary-container leading-none">Kab. Pekalongan</span>
+</div>
+</div>
+<!-- Emergency Operational Badge CTA -->
+<div class="px-3 py-2 bg-emerald-950/40 border border-emerald-500/30 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-md text-label-md text-emerald-300">Status Darurat Terkendali</span>
+</div>
+<span class="material-symbols-outlined text-emerald-400 text-[16px]">verified</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1.5">
+<!-- 0: Beranda -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2.5 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface">dashboard</span>
+<span class="font-label-lg text-label-lg">Beranda</span>
+</a>
+<!-- 1: Demografi -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2.5 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface">groups</span>
+<span class="font-label-lg text-label-lg">Demografi</span>
+</a>
+<!-- 2: Kasus Pneumonia -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2.5 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface">respiratory_rate</span>
+<span class="font-label-lg text-label-lg">Kasus Pneumonia</span>
+</a>
+<!-- 3: Imunisasi -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2.5 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface">vaccines</span>
+<span class="font-label-lg text-label-lg">Imunisasi</span>
+</a>
+<!-- 4: Tenaga Kesehatan -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2.5 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface">medical_services</span>
+<span class="font-label-lg text-label-lg">Tenaga Kesehatan</span>
+</a>
+<!-- 5: Per Kecamatan -->
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2.5 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface">location_city</span>
+<span class="font-label-lg text-label-lg">Per Kecamatan</span>
+</a>
+<!-- 6: Tentang Data (ACTIVE TAB) -->
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-3 py-2.5 font-title-lg shadow-sm" href="#">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="font-title-lg text-title-lg text-on-secondary-container">Tentang Data</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Institutional Utilities -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/10">
+<div class="px-2 py-1 text-on-primary-container font-label-md text-label-md tracking-wider">LAYANAN TERPADU</div>
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface text-[18px]">health_and_safety</span>
+<span class="font-body-sm text-body-sm">Puskesmas Siaga 24/7</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:text-surface hover:bg-primary/40 active:scale-[0.98] transition-all px-3 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-surface text-[18px]">help</span>
+<span class="font-body-sm text-body-sm">Bantuan Teknis</span>
+</a>
+<div class="mt-2 p-2.5 bg-tertiary-container/40 rounded-lg flex items-center gap-2 border border-white/5">
+<span class="material-symbols-outlined text-secondary-container text-lg">admin_panel_settings</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-surface-container-highest">Admin Dinkes Satgas</span>
+<span class="font-body-sm text-body-sm text-on-primary-container leading-none">Ver. 2.4-SurvProd</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ==================== TOP NAVIGATION BAR ==================== -->
+<header class="sticky top-0 right-0 z-30 ml-[260px] w-[calc(100%-260px)] bg-surface-container-lowest border-b border-outline-variant/30 shadow-sm flex justify-between items-center px-6 py-3">
+<!-- Left: Context Titles -->
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Metadata, Sumber Data & Tata Kelola Surveilans</h1>
+<span class="bg-secondary/10 text-secondary px-2.5 py-0.5 rounded-full font-label-md text-label-md">Rilis Resmi</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="font-medium text-secondary">Kabupaten Pekalongan – Tahun 2024</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Program Pencegahan Pneumonia & Stunting Balita</span>
+</div>
+</div>
+<!-- Right: Operational Controls & Profile -->
+<div class="flex items-center gap-3">
+<!-- Filter Button 1 -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low border border-outline-variant/50 rounded-lg text-primary hover:bg-surface-container active:scale-95 transition-all text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">filter_alt</span>
+<span class="font-label-lg text-label-lg">Filter Kecamatan: Semua</span>
+</div>
+<!-- Action Button 2 (Version Filter) -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary-container text-surface-container-lowest rounded-lg hover:bg-secondary active:scale-95 transition-all text-body-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-lg text-label-lg">Versi: Rilis November 2024</span>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant/40 mx-1"></div>
+<!-- Icon Quick Actions -->
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-colors relative" title="Notifikasi Verifikasi Data">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+</button>
+<!-- Profile Avatar -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20" data-alt="Official headshot of Chief Healthcare Information and Epidemiological Surveillance Administrator wearing civil uniform, smiling in a clinical administrative office setting with bright fluorescent lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5hLDsDsv3E5hVbYcvelgpzLv_-9WsQcV0juRBL_IYZ11hCoracmuIBngwIRFf7teD9P6P8qHOYtxHqlAg0-_lDS1pWLezKYKSPC5BjfNgykdDVSoOeRrR4o7n8vhGtxb3d_IMmfwcMk5PgyVKNb5dKcfGD9OoluNuF_artmoYEwFfFLqaHghvyVdgGz-fLPIhfjaXBVY_ma-mazMCno9ED5X8vMoj5Mbv_Z7z5rwr"/>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT CANVAS (16:9 Widescreen Optimized) ==================== -->
+<main class="ml-[260px] w-[calc(100%-260px)] p-6 space-y-6 flex-1 max-w-[1920px]">
+<!-- 1. KPI CARDS SECTION (4 Categorical Pastel Colors) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Card 1: Integritas Data (Pastel Hijau / Nominal) -->
+<div class="bg-[#DCFCE7] border border-[#BBF7D0] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#166534] tracking-wider uppercase">Integritas Data</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-metric-display text-metric-display text-[#14532D]">100%</span>
+<span class="font-title-lg text-title-lg text-[#166534]">Terverifikasi</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-white/70 flex items-center justify-center text-[#166534] shadow-sm">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#166534]/15 flex items-center justify-between text-body-sm font-body-sm text-[#166534]">
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Kemenkes & Dinkes Prov.
+          </span>
+<span class="font-label-md text-label-md bg-white/80 px-2 py-0.5 rounded-full text-[#14532D]">Audit Valid</span>
+</div>
+</div>
+<!-- Card 2: Sumber Data Utama (Pastel Biru / Monitoring) -->
+<div class="bg-[#E0F2FE] border border-[#BAE6FD] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#075985] tracking-wider uppercase">Sumber Data Utama</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-metric-display text-metric-display text-[#0C4A6E]">4</span>
+<span class="font-title-lg text-title-lg text-[#075985]">Sistem Terintegrasi</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-white/70 flex items-center justify-center text-[#075985] shadow-sm">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#075985]/15 flex items-center justify-between text-body-sm font-body-sm text-[#075985]">
+<span class="font-medium truncate">SIMKEP, ASiK, SIRS, Disdukcapil</span>
+<span class="font-label-md text-label-md bg-white/80 px-2 py-0.5 rounded-full text-[#0C4A6E]">API Live</span>
+</div>
+</div>
+<!-- Card 3: Frekuensi Pembaruan (Pastel Ungu) -->
+<div class="bg-[#F3E8FF] border border-[#E9D5FF] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#6B21A8] tracking-wider uppercase">Frekuensi Pembaruan</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-metric-display text-metric-display text-[#581C87]">Real-time</span>
+<span class="font-body-md text-body-md text-[#7E22CE]">Sinkronisasi</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-white/70 flex items-center justify-center text-[#6B21A8] shadow-sm">
+<span class="material-symbols-outlined text-[24px]">sync</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#6B21A8]/15 flex items-center justify-between text-body-sm font-body-sm text-[#6B21A8]">
+<span class="font-medium">Harian (Puskesmas) / Bulanan (SKDR)</span>
+<span class="font-label-md text-label-md bg-white/80 px-2 py-0.5 rounded-full text-[#581C87]">Auto-sync</span>
+</div>
+</div>
+<!-- Card 4: Total Entitas Terdata (Pastel Orange/Kuning Hangat) -->
+<div class="bg-[#FFEDD5] border border-[#FED7AA] rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#9A3412] tracking-wider uppercase">Total Entitas Terdata</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-metric-display text-metric-display text-[#7C2D12]">27</span>
+<span class="font-title-lg text-title-lg text-[#9A3412]">Puskesmas</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-white/70 flex items-center justify-center text-[#9A3412] shadow-sm">
+<span class="material-symbols-outlined text-[24px]">apartment</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#9A3412]/15 flex items-center justify-between text-body-sm font-body-sm text-[#9A3412]">
+<span class="font-medium">Jejaring: 1.148 Posyandu Aktif</span>
+<span class="font-label-md text-label-md bg-white/80 px-2 py-0.5 rounded-full text-[#7C2D12]">100% Wilayah</span>
+</div>
+</div>
+</section>
+<!-- 2. DIAGRAM ALUR INTEGRASI SATU DATA KESEHATAN (Navy Header Analytical Module) -->
+<section class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden shadow-[0_1px_3px_rgba(15,39,68,0.04)]">
+<!-- Executive Header Variant: Command Navy -->
+<div class="bg-primary-container px-6 py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-3 text-surface">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface/10 flex items-center justify-center text-surface-container-highest">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-surface font-semibold tracking-tight">Arsitektur & Alur Integrasi Satu Data Kesehatan Kab. Pekalongan</h2>
+<p class="font-body-sm text-body-sm text-on-primary-container">Pipeline pertukaran data interoperabilitas standar HL7 FHIR & format interoperabel SatuSehat Kemenkes RI</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-surface/10 text-primary-fixed rounded-full font-label-md text-label-md flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Interoperabilitas Aktif
+          </span>
+</div>
+</div>
+<!-- Flow Architecture Grid -->
+<div class="p-6 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+<!-- Node 1: Posyandu & Faskes Primer Lapangan -->
+<div class="bg-[#F8FAFC] border border-outline-variant/40 rounded-xl p-4 flex flex-col justify-between hover:border-secondary transition-colors relative group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md bg-secondary/10 text-secondary px-2 py-0.5 rounded font-semibold">TINGKAT 1</span>
+<span class="material-symbols-outlined text-secondary">child_care</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary mb-1">Posyandu & Kader Desa</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-3">
+                Pencatatan primer penimbangan balita, gejala batuk/sukar bernapas, riwayat imunisasi BCG s/d DPT-HB-Hib di tingkat RW.
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-200 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Instrumen:</span>
+<span class="font-semibold text-primary">Buku KIA / e-PPGBM</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Total Titik:</span>
+<span class="font-semibold text-primary">1.148 Posyandu</span>
+</div>
+</div>
+</div>
+<!-- Arrow Connector 1 (Desktop) -->
+<div class="hidden md:flex absolute left-[24%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-7 h-7 rounded-full bg-primary-container text-surface items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+<!-- Node 2: 27 Puskesmas Induk -->
+<div class="bg-[#F8FAFC] border border-outline-variant/40 rounded-xl p-4 flex flex-col justify-between hover:border-secondary transition-colors relative group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md bg-secondary/10 text-secondary px-2 py-0.5 rounded font-semibold">TINGKAT 2</span>
+<span class="material-symbols-outlined text-secondary">local_hospital</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary mb-1">27 Puskesmas Se-Kabupaten</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-3">
+                Validasi klinis oleh dokter dan petugas MTBS (Manajemen Terpadu Balita Sakit). Klasifikasi pneumonia ringan, berat, dan rujukan.
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-200 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Aplikasi:</span>
+<span class="font-semibold text-primary">SIMKEP & ASiK Kemenkes</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Frekuensi:</span>
+<span class="font-semibold text-primary">Harian / Real-time</span>
+</div>
+</div>
+</div>
+<!-- Arrow Connector 2 (Desktop) -->
+<div class="hidden md:flex absolute left-[49%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-7 h-7 rounded-full bg-primary-container text-surface items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+<!-- Node 3: Dinas Kesehatan Kab. Pekalongan -->
+<div class="bg-[#EFF6FF] border-2 border-secondary/40 rounded-xl p-4 flex flex-col justify-between hover:border-secondary transition-colors relative group shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md bg-primary-container text-surface px-2 py-0.5 rounded font-semibold">PUSAT KONTROL</span>
+<span class="material-symbols-outlined text-secondary">analytics</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary mb-1">Dinkes Kab. Pekalongan</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-3">
+                Tim Epidemiologi melakukan agregasi kewilayahan, audit CFR (Case Fatality Rate), monitoring stok vaksin, dan validasi duplikasi NIK.
+              </p>
+</div>
+<div class="pt-3 border-t border-blue-200 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Engine:</span>
+<span class="font-semibold text-secondary">Surveilans Terpadu Dinkes</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Verifikasi:</span>
+<span class="font-semibold text-emerald-700">100% Cleansed Data</span>
+</div>
+</div>
+</div>
+<!-- Arrow Connector 3 (Desktop) -->
+<div class="hidden md:flex absolute left-[74%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-7 h-7 rounded-full bg-primary-container text-surface items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+<!-- Node 4: Satu Data Kemenkes RI -->
+<div class="bg-[#F8FAFC] border border-outline-variant/40 rounded-xl p-4 flex flex-col justify-between hover:border-secondary transition-colors relative group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md bg-secondary/10 text-secondary px-2 py-0.5 rounded font-semibold">NASIONAL</span>
+<span class="material-symbols-outlined text-secondary">cloud_done</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary mb-1">Satu Data Kemenkes RI</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-3">
+                Penyelarasan indikator RPJMD & target Renstra Nasional melalui portal SatuSehat serta pelaporan SKDR (Sistem Kewaspadaan Dini & Respon).
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-200 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Protokol:</span>
+<span class="font-semibold text-primary">FHIR REST API JSON</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Output:</span>
+<span class="font-semibold text-primary">Publikasi Resmi RI</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footnote pipeline note -->
+<div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">security</span>
+<span>Semua transfer data dienkripsi dengan standar TLS 1.3 serta mematuhi UU No. 27/2022 tentang Pelindungan Data Pribadi (PDP).</span>
+</div>
+<span class="font-label-md text-label-md text-secondary">Latency Sync: < 15 menit</span>
+</div>
+</div>
+</section>
+<!-- 3. KAMUS DATA & DEFINISI OPERASIONAL (BENTO DENSITY WITH HIGH-PRECISION TABLES) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- Kamus Data Operational Definitions (8 Columns) -->
+<div class="xl:col-span-8 bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden shadow-[0_1px_3px_rgba(15,39,68,0.04)] flex flex-col">
+<!-- Card Header: Standard Variant with miniature Navy badge -->
+<div class="px-6 py-4 border-b border-outline-variant/20 flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-2.5">
+<span class="bg-primary-container text-surface px-2.5 py-1 rounded text-label-md font-label-md">METADATA RESMI</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Kamus Data & Definisi Operasional Surveilans</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-surface-container-low border border-outline-variant/40 rounded text-body-sm font-label-lg text-primary hover:bg-surface-container transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">file_download</span> Unduh PDF Kamus
+            </button>
+</div>
+</div>
+<!-- Table View -->
+<div class="overflow-x-auto custom-scrollbar flex-1">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#F8FAFC] border-b border-outline-variant/30 text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-3 px-4 w-12 text-center">No</th>
+<th class="py-3 px-4 w-44">Indikator Surveilans</th>
+<th class="py-3 px-4">Definisi Operasional Standar</th>
+<th class="py-3 px-4 w-48">Formula / Rumus Kalkulasi</th>
+<th class="py-3 px-4 w-32 text-center">Sumber Baku</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-sm text-body-sm">
+<!-- Item 1: Kasus Pneumonia Balita -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-3.5 px-4 text-center text-on-surface-variant font-semibold">1</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-primary">Kasus Pneumonia Balita</div>
+<span class="text-xs text-secondary font-medium">ICD-10: J12-J18</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant leading-relaxed">
+                  Balita usia 0–59 bulan dengan keluhan batuk atau kesukaran bernapas yang disertai napas cepat (sesuai ambang usia) dan/atau tarikan dinding dada ke dalam (chest indrawing), terkonfirmasi oleh tenaga kesehatan di Faskes.
+                </td>
+<td class="py-3.5 px-4 font-mono text-xs text-primary bg-slate-50/50 rounded p-2">
+                  ∑ Kasus Balita Terdiagnosa Pneumonia dlm Periode Berjalan
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-label-md text-label-md">SIMKEP / MTBS</span>
+</td>
+</tr>
+<!-- Item 2: Imunisasi Dasar Lengkap (IDL) -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-3.5 px-4 text-center text-on-surface-variant font-semibold">2</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-primary">Cakupan IDL Balita</div>
+<span class="text-xs text-secondary font-medium">Indikator Renstra</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant leading-relaxed">
+                  Persentase bayi yang telah mendapatkan 1 dosis Hepatitis B, 1 dosis BCG, 3 dosis DPT-HB-Hib, 4 dosis Polio tetes (bOPV), 1 dosis IPV, dan 1 dosis Campak-Rubella sebelum genap berusia 12 bulan.
+                </td>
+<td class="py-3.5 px-4 font-mono text-xs text-primary bg-slate-50/50 rounded p-2">
+                  (∑ Bayi IDL / ∑ Sasaran Kohort Bayi Lahir Hidup) × 100%
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-label-md text-label-md">ASiK Kemenkes</span>
+</td>
+</tr>
+<!-- Item 3: Case Fatality Rate (CFR) -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-3.5 px-4 text-center text-on-surface-variant font-semibold">3</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-primary">Case Fatality Rate (CFR)</div>
+<span class="text-xs text-error font-medium">Tingkat Fatalitas</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant leading-relaxed">
+                  Rasio mortalitas balita akibat komplikasi pneumonia terhadap total seluruh penderita pneumonia yang terdata pada fasilitas pelayanan kesehatan di wilayah kerja Dinas Kesehatan.
+                </td>
+<td class="py-3.5 px-4 font-mono text-xs text-primary bg-slate-50/50 rounded p-2">
+                  (∑ Kematian Balita Pneumonia / ∑ Total Kasus Pneumonia) × 100%
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 bg-red-100 text-red-800 rounded font-label-md text-label-md">SIRS & Audit Dinkes</span>
+</td>
+</tr>
+<!-- Item 4: Rasio Penduduk per RT -->
+<tr class="hover:bg-[#F1F5F9] transition-colors">
+<td class="py-3.5 px-4 text-center text-on-surface-variant font-semibold">4</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-primary">Rata-rata Penduduk / RT</div>
+<span class="text-xs text-secondary font-medium">Kepadatan Hunian</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant leading-relaxed">
+                  Rata-rata jumlah jiwa dalam setiap satuan Rumah Tangga (RT) di tingkat kecamatan, merefleksikan tingkat kepadatan mikro dan potensi penularan infeksi saluran pernapasan droplet.
+                </td>
+<td class="py-3.5 px-4 font-mono text-xs text-primary bg-slate-50/50 rounded p-2">
+                  ∑ Jumlah Jiwa Penduduk / ∑ Total Rumah Tangga Resmi
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 bg-purple-100 text-purple-800 rounded font-label-md text-label-md">Disdukcapil 2024</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Scientific Validation Notes & Verifikasi (4 Columns) -->
+<div class="xl:col-span-4 space-y-6 flex flex-col justify-between">
+<!-- Validation Warning & Notes Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)]">
+<div class="flex items-center gap-2.5 mb-3 text-primary">
+<span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</span>
+<h3 class="font-title-lg text-title-lg font-semibold">Catatan Validasi & Verifikasi Ilmiah</h3>
+</div>
+<div class="space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+<div class="p-3 bg-amber-50/70 border border-amber-200/80 rounded-lg flex items-start gap-2.5">
+<span class="material-symbols-outlined text-amber-700 text-[18px] shrink-0 mt-0.5">difference</span>
+<div>
+<span class="font-semibold text-amber-950">Perbandingan dengan Kab. Pemalang:</span>
+<p class="mt-0.5 text-amber-900 leading-snug">
+                  Data kasus pneumonia Kab. Pekalongan (669 kasus) dan Kab. Pemalang (13.768 kasus) merepresentasikan perbedaan operasional definisi skrining agresif dan cakupan populasi rujukan regional Pantura.
+                </p>
+</div>
+</div>
+<div class="p-3 bg-blue-50/70 border border-blue-200/80 rounded-lg flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">trending_up</span>
+<div>
+<span class="font-semibold text-blue-950">Anomali Cakupan IDL > 100% (101,5%):</span>
+<p class="mt-0.5 text-blue-900 leading-snug">
+                  Angka melebihi 100% disebabkan migrasi balita komuter non-domisili yang memperoleh imunisasi di faskes perbatasan Kab. Pekalongan, serta perbedaan proyeksi sensus vs registrasi riil.
+                </p>
+</div>
+</div>
+<div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-start gap-2.5">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] shrink-0 mt-0.5">analytics</span>
+<div>
+<span class="font-semibold text-primary">Keterbatasan Variabel Faktor Risiko:</span>
+<p class="mt-0.5 text-on-surface-variant leading-snug">
+                  Faktor risiko pajanan asap rokok domestik, status BBLR (Berat Badan Lahir Rendah), dan ventilasi hunian saat ini masih dalam fase agregasi kohort tahap II.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Institutional Helpdesk & Epidemiologist Contact -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)]">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-semibold uppercase">SPGDT & Surveilans</span>
+<span class="material-symbols-outlined text-rose-600">emergency</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary font-semibold">Helpdesk & Tim Epidemiologi</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-4 leading-relaxed">
+            Dinas Kesehatan Kabupaten Pekalongan menyediakan jalur koordinasi terpadu untuk klarifikasi anomali data fasilitas kesehatan.
+          </p>
+<div class="space-y-2.5 pt-2 border-t border-slate-200">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span> Kontak Darurat SPGDT:
+              </span>
+<span class="font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">119 / (0285) 381119</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">mail</span> Email Surveilans:
+              </span>
+<span class="font-semibold text-primary">surveilans@pekalongankab.go.id</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span> Kantor Satgas:
+              </span>
+<span class="font-medium text-primary">Jl. Sindoro No. 7 Kajen</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. TATA KELOLA AKSES, PRIVASI & INTEGRASI SISTEM (3 BENTO MODULES) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Box 1: Kebijakan Privasi & Enkripsi Rekam Medis -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary mb-3">
+<span class="material-symbols-outlined text-[24px]">enhanced_encryption</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-semibold mb-1">Tata Kelola & Perlindungan Data Pribadi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Penyajian data agregat publik menerapkan pseudonimisasi dan masking ketat. Identitas NIK balita dan nama orang tua tidak dipublikasikan ke ranah terbuka.
+          </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-label-md text-label-md text-secondary">
+<span>Kepatuhan: UU PDP No. 27/2022</span>
+<span class="material-symbols-outlined text-[16px]">lock</span>
+</div>
+</div>
+<!-- Box 2: Jadwal Audit & Rekonsiliasi Data -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-700 mb-3">
+<span class="material-symbols-outlined text-[24px]">event_repeat</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-semibold mb-1">Jadwal Siklus Rekonsiliasi Data</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Rekonsiliasi berkala triwulanan melibatkan perwakilan 27 pengelola data Puskesmas, IDAI Cabang Jawa Tengah, dan Seksi Surveilans & Imunisasi Dinkes.
+          </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-label-md text-label-md text-emerald-800">
+<span>Siklus Selanjutnya: 15 Januari 2025</span>
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+</div>
+</div>
+<!-- Box 3: Komitmen Keterbukaan Satu Data Indonesia -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 shadow-[0_1px_3px_rgba(15,39,68,0.04)] flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-700 mb-3">
+<span class="material-symbols-outlined text-[24px]">share</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-semibold mb-1">Prinsip Satu Data Indonesia (SDI)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Seluruh dataset dilengkapi standar data baku, metadata terstruktur, interoperabilitas lintas sektor dengan Bappeda, serta kode referensi wilayah Kemendagri.
+          </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-label-md text-label-md text-purple-800">
+<span>Terdaftar di Portal SDI Jateng</span>
+<span class="material-symbols-outlined text-[16px]">public</span>
+</div>
+</div>
+</section>
+</main>
+<!-- ==================== FOOTER ==================== -->
+<footer class="ml-[260px] w-[calc(100%-260px)] bg-surface-container-lowest border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="font-label-lg text-label-lg text-primary">DINKES KAB. PEKALONGAN</span>
+<span class="text-outline-variant">|</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        © 2024 Dinas Kesehatan Pemerintah Kabupaten Pekalongan. Sistem Informasi Surveilans Terpadu.
+      </p>
+</div>
+<div class="flex items-center gap-6 mt-3 md:mt-0 font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Satu Data Kesehatan</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Portal Pemkab Pekalongan</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Kebijakan Privasi</a>
+<a class="text-error hover:underline transition-colors flex items-center gap-1 font-semibold" href="#">
+<span class="material-symbols-outlined text-[14px]">call</span> Kontak Darurat SPGDT 119
+      </a>
+</div>
+</footer>
+</body></html>
